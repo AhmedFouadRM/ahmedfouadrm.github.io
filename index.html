@@ -1,271 +1,226 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.3">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Fouad | Senior Flutter & Mobile Engineer</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --border-color: #30363d;
+            --text-main: #c9d1d9;
+            --text-heading: #ffffff;
+            --accent-color: #58a6ff;
+            --tag-bg: #1f242c;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+        h1 {
+            color: var(--text-heading);
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+        .links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 600;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+        h2 {
+            color: var(--text-heading);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card h3 {
+            color: var(--text-heading);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        .tag {
+            background-color: var(--tag-bg);
+            border: 1px solid var(--border-color);
+            color: var(--accent-color);
+            font-size: 0.8rem;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+        .store-links {
+            margin-top: 15px;
+        }
+        .store-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-right: 15px;
+        }
+        .notice-box {
+            background-color: #161b22;
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+    </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Ahmed Fouad | Senior Flutter &amp; Mobile Engineer&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>:root {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--bg-color: #0d1117;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--card-bg: #161b22;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--border-color: #30363d;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--text-main: #c9d1d9;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--text-heading: #ffffff;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--accent-color: #58a6ff;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--tag-bg: #1f242c;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--bg-color);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--text-main);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.6;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.container {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 900px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 40px 20px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>header {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid var(--border-color);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding-bottom: 30px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 40px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>h1 {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--text-heading);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 2.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 0 10px 0;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.subtitle {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.2rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--accent-color);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.links a {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--accent-color);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-right: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.links a:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: underline;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>h2 {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--text-heading);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid var(--border-color);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding-bottom: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 40px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.grid {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>grid-template-columns: 1fr;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>gap: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>@media (min-width: 768px) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.grid {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>grid-template-columns: 1fr 1fr;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--card-bg);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid var(--border-color);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: space-between;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card h3 {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--text-heading);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.tags {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>flex-wrap: wrap;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>gap: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.tag {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--tag-bg);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid var(--border-color);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--accent-color);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.8rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 3px 8px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 4px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.store-links {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.store-links a {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--accent-color);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.9rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-right: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.notice-box {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #161b22;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-left: 4px solid var(--accent-color);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 30px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.95rem;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;header&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1&gt;Ahmed Mahmoud Fouad&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="subtitle"&gt;Mobile Application Developer (Flutter) | M.Sc. in Artificial Intelligence&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Specializing in Clean Architecture, BLoC state management, real-time integrations, and performance optimization for cross-platform iOS and Android production applications.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="links"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="https://github.com/ahmedfouadrm" target="_blank"&gt;GitHub&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="https://linkedin.com/in/ahmedfouadrm" target="_blank"&gt;LinkedIn&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="mailto:AhmedFouad2014@gmail.com"&gt;Email Me&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/header&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="notice-box"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;strong&gt;Note on Commercial Repositories:&lt;/strong&gt; Production software systems (e.g., Doctoria, Xeer) were engineered under commercial licenses for client organizations. Source code remains proprietary, but application features, architecture highlights, and public store distribution links are detailed below.</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Featured Production Applications&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Doctoria --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3&gt;Doctoria&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p&gt;Comprehensive mobile healthcare platform featuring real-time video/voice consultation rooms, medical appointment management, and homecare service bookings.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Integrated ZegoCloud &amp; Jitsi WebRTC engines for tele-consultation.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Configured Firebase Firestore real-time state sync and FCM notifications.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Engineered secure remote payment gateway integration.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="tags"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="tag"&gt;Flutter&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="tag"&gt;BLoC&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="tag"&gt;Firebase&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="tag"&gt;ZegoCloud&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="tag"&gt;Payment Gateway&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="store-links"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;a href="#" target="_blank"&gt;Google Play&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;a href="#" target="_blank"&gt;App Store&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Xeer --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3&gt;Xeer&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p&gt;Multi-module cross-platform application delivering personalized content modules alongside real-time asset tracking capabilities.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Architected foundation using Clean Architecture and BLoC.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Utilized Retrofit, build_runner, and auto_route for type-safe execution.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Implemented strict hardware data encryption using flutter_secure_storage.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="tags"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="tag"&gt;Flutter&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="tag"&gt;Clean Architecture&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="tag"&gt;BLoC&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="tag"&gt;Retrofit&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="tag"&gt;GetIt&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="store-links"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;a href="#" target="_blank"&gt;Google Play&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- VCard --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3&gt;VCard&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p&gt;Digital business card solution enabling contact sharing, custom QR code generation, and hardware-level transmission.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Programmed native NFC support for physical contact transfers.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Built interactive QR code scanning and generation engine.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="tags"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="tag"&gt;Flutter&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="tag"&gt;Provider&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="tag"&gt;NFC&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="tag"&gt;QR Engine&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Locmefi --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3&gt;Locmefi&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p&gt;Location-based application featuring dynamic map components, user tracking, and automated geofenced alerts.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Configured Google Maps API and background location tracking.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Automated location-triggered push notifications.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="tags"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="tag"&gt;Flutter&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="tag"&gt;Google Maps API&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="tag"&gt;Firebase&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Research &amp; Academic Publications&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3&gt;Multi-branch network for double JPEG detection and localization&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;&lt;strong&gt;Published in:&lt;/strong&gt; &lt;em&gt;Scientific Reports&lt;/em&gt; (Nature Portfolio)&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Conducted deep learning research specializing in digital image forensics, developing multi-branch neural network architectures to detect image tampering and forgery.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="store-links"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="https://www.nature.com/articles/s41598-024-52271-9" target="_blank"&gt;Read Paper on Nature.com &amp;rarr;&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+    <div class="container">
+        <header>
+            <h1>Ahmed Mahmoud Fouad</h1>
+            <div class="subtitle">Mobile Application Developer (Flutter) | M.Sc. in Artificial Intelligence</div>
+            <p>Specializing in Clean Architecture, BLoC state management, real-time integrations, and performance optimization for cross-platform iOS and Android production applications.</p>
+            <div class="links">
+                <a href="[https://github.com/ahmedfouadrm](https://github.com/ahmedfouadrm)" target="_blank">GitHub</a>
+                <a href="[https://linkedin.com/in/ahmedfouadrm](https://linkedin.com/in/ahmedfouadrm)" target="_blank">LinkedIn</a>
+                <a href="mailto:AhmedFouad2014@gmail.com">Email Me</a>
+            </div>
+        </header>
+
+        <div class="notice-box">
+            <strong>Note on Commercial Repositories:</strong> Production software systems (e.g., Doctoria, Xeer) were engineered under commercial licenses for client organizations. Source code remains proprietary, but application features, architecture highlights, and public store distribution links are detailed below.
+        </div>
+
+        <h2>Featured Production Applications</h2>
+        <div class="grid">
+            <div class="card">
+                <div>
+                    <h3>Doctoria</h3>
+                    <p>Comprehensive mobile healthcare platform featuring real-time video/voice consultation rooms, medical appointment management, and homecare service bookings.</p>
+                    <ul>
+                        <li>Integrated ZegoCloud & Jitsi WebRTC engines for tele-consultation.</li>
+                        <li>Configured Firebase Firestore real-time state sync and FCM notifications.</li>
+                        <li>Engineered secure remote payment gateway integration.</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="tags">
+                        <span class="tag">Flutter</span>
+                        <span class="tag">BLoC</span>
+                        <span class="tag">Firebase</span>
+                        <span class="tag">ZegoCloud</span>
+                        <span class="tag">Payment Gateway</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Xeer</h3>
+                    <p>Multi-module cross-platform application delivering personalized content modules alongside real-time asset tracking capabilities.</p>
+                    <ul>
+                        <li>Architected foundation using Clean Architecture and BLoC.</li>
+                        <li>Utilized Retrofit, build_runner, and auto_route for type-safe execution.</li>
+                        <li>Implemented strict hardware data encryption using flutter_secure_storage.</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="tags">
+                        <span class="tag">Flutter</span>
+                        <span class="tag">Clean Architecture</span>
+                        <span class="tag">BLoC</span>
+                        <span class="tag">Retrofit</span>
+                        <span class="tag">GetIt</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>VCard</h3>
+                    <p>Digital business card solution enabling contact sharing, custom QR code generation, and hardware-level transmission.</p>
+                    <ul>
+                        <li>Programmed native NFC support for physical contact transfers.</li>
+                        <li>Built interactive QR code scanning and generation engine.</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="tags">
+                        <span class="tag">Flutter</span>
+                        <span class="tag">Provider</span>
+                        <span class="tag">NFC</span>
+                        <span class="tag">QR Engine</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Locmefi</h3>
+                    <p>Location-based application featuring dynamic map components, user tracking, and automated geofenced alerts.</p>
+                    <ul>
+                        <li>Configured Google Maps API and background location tracking.</li>
+                        <li>Automated location-triggered push notifications.</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="tags">
+                        <span class="tag">Flutter</span>
+                        <span class="tag">Google Maps API</span>
+                        <span class="tag">Firebase</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Research & Academic Publications</h2>
+        <div class="card">
+            <h3>Multi-branch network for double JPEG detection and localization</h3>
+            <p><strong>Published in:</strong> <em>Scientific Reports</em> (Nature Portfolio)</p>
+            <p>Conducted deep learning research specializing in digital image forensics, developing multi-branch neural network architectures to detect image tampering and forgery.</p>
+            <div class="store-links">
+                <a href="[https://www.nature.com/articles/s41598-024-52271-9](https://www.nature.com/articles/s41598-024-52271-9)" target="_blank">Read Paper on Nature.com &rarr;</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
- 
