@@ -702,6 +702,30 @@
             box-shadow: 0 0 25px rgba(102, 252, 241, 0.8);
         }
 
+        /* Interactive Spotlight Effect */
+        .card::after, .exp-card::after, .skill-card::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            background: radial-gradient(
+                600px circle at var(--mouse-x, -600px) var(--mouse-y, -600px),
+                rgba(102, 252, 241, 0.06),
+                transparent 40%
+            );
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover::after, .exp-card:hover::after, .skill-card:hover::after {
+            opacity: 1;
+        }
+
         @media (max-width: 900px) {
             .card.wide {
                 flex-direction: column;
@@ -973,21 +997,21 @@
                             <i data-lucide="chevron-left"></i>
                         </div>
                         <div class="carousel">
-                            <img loading="lazy" decoding="async" src="assets/xeer/1.png" alt="Xeer Screen 1"
+                            <img loading="lazy" decoding="async" src="assets/xeer/1.webp" alt="Xeer Screen 1"
                                 onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Xeer+Screen+1'">
-                            <img loading="lazy" decoding="async" src="assets/xeer/2.png" alt="Xeer Screen 2"
+                            <img loading="lazy" decoding="async" src="assets/xeer/2.webp" alt="Xeer Screen 2"
                                 onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Xeer+Screen+2'">
-                            <img loading="lazy" decoding="async" src="assets/xeer/3.png" alt="Xeer Screen 3"
+                            <img loading="lazy" decoding="async" src="assets/xeer/3.webp" alt="Xeer Screen 3"
                                 onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Xeer+Screen+3'">
-                            <img loading="lazy" decoding="async" src="assets/xeer/4.png" alt="Xeer Screen 4"
+                            <img loading="lazy" decoding="async" src="assets/xeer/4.webp" alt="Xeer Screen 4"
                                 onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Xeer+Screen+4'">
-                            <img loading="lazy" decoding="async" src="assets/xeer/5.png" alt="Xeer Screen 5"
+                            <img loading="lazy" decoding="async" src="assets/xeer/5.webp" alt="Xeer Screen 5"
                                 onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Xeer+Screen+5'">
-                            <img loading="lazy" decoding="async" src="assets/xeer/6.png" alt="Xeer Screen 6"
+                            <img loading="lazy" decoding="async" src="assets/xeer/6.webp" alt="Xeer Screen 6"
                                 onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Xeer+Screen+6'">
-                            <img loading="lazy" decoding="async" src="assets/xeer/7.png" alt="Xeer Screen 7"
+                            <img loading="lazy" decoding="async" src="assets/xeer/7.webp" alt="Xeer Screen 7"
                                 onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Xeer+Screen+7'">
-                            <img loading="lazy" decoding="async" src="assets/xeer/8.png" alt="Xeer Screen 8"
+                            <img loading="lazy" decoding="async" src="assets/xeer/8.webp" alt="Xeer Screen 8"
                                 onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Xeer+Screen+8'">
                         </div>
                         <div class="carousel-btn next"
@@ -1026,15 +1050,15 @@
                             <i data-lucide="chevron-left"></i>
                         </div>
                         <div class="carousel">
-                            <img loading="lazy" decoding="async" src="assets/doctoria/1.png" alt="Doctoria Screen 1" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+1'">
-                            <img loading="lazy" decoding="async" src="assets/doctoria/2.png" alt="Doctoria Screen 2" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+2'">
-                            <img loading="lazy" decoding="async" src="assets/doctoria/3.png" alt="Doctoria Screen 3" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+3'">
-                            <img loading="lazy" decoding="async" src="assets/doctoria/4.png" alt="Doctoria Screen 4" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+4'">
-                            <img loading="lazy" decoding="async" src="assets/doctoria/5.png" alt="Doctoria Screen 5" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+5'">
-                            <img loading="lazy" decoding="async" src="assets/doctoria/6.png" alt="Doctoria Screen 6" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+6'">
-                            <img loading="lazy" decoding="async" src="assets/doctoria/7.png" alt="Doctoria Screen 7" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+7'">
-                            <img loading="lazy" decoding="async" src="assets/doctoria/8.png" alt="Doctoria Screen 8" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+8'">
-                            <img loading="lazy" decoding="async" src="assets/doctoria/9.png" alt="Doctoria Screen 9" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+9'">
+                            <img loading="lazy" decoding="async" src="assets/doctoria/1.webp" alt="Doctoria Screen 1" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+1'">
+                            <img loading="lazy" decoding="async" src="assets/doctoria/2.webp" alt="Doctoria Screen 2" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+2'">
+                            <img loading="lazy" decoding="async" src="assets/doctoria/3.webp" alt="Doctoria Screen 3" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+3'">
+                            <img loading="lazy" decoding="async" src="assets/doctoria/4.webp" alt="Doctoria Screen 4" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+4'">
+                            <img loading="lazy" decoding="async" src="assets/doctoria/5.webp" alt="Doctoria Screen 5" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+5'">
+                            <img loading="lazy" decoding="async" src="assets/doctoria/6.webp" alt="Doctoria Screen 6" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+6'">
+                            <img loading="lazy" decoding="async" src="assets/doctoria/7.webp" alt="Doctoria Screen 7" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+7'">
+                            <img loading="lazy" decoding="async" src="assets/doctoria/8.webp" alt="Doctoria Screen 8" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+8'">
+                            <img loading="lazy" decoding="async" src="assets/doctoria/9.webp" alt="Doctoria Screen 9" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+9'">
                         </div>
                         <div class="carousel-btn next" onclick="this.previousElementSibling.scrollBy({left: 350, behavior: 'smooth'})">
                             <i data-lucide="chevron-right"></i>
@@ -1070,10 +1094,10 @@
                             <i data-lucide="chevron-left"></i>
                         </div>
                         <div class="carousel">
-                            <img loading="lazy" decoding="async" src="assets/vcard/1.jpeg" alt="VCard Screen 1" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=VCard+Screen+1'">
-                            <img loading="lazy" decoding="async" src="assets/vcard/2.jpeg" alt="VCard Screen 2" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=VCard+Screen+2'">
-                            <img loading="lazy" decoding="async" src="assets/vcard/3.jpeg" alt="VCard Screen 3" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=VCard+Screen+3'">
-                            <img loading="lazy" decoding="async" src="assets/vcard/4.jpeg" alt="VCard Screen 4" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=VCard+Screen+4'">
+                            <img loading="lazy" decoding="async" src="assets/vcard/1.webp" alt="VCard Screen 1" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=VCard+Screen+1'">
+                            <img loading="lazy" decoding="async" src="assets/vcard/2.webp" alt="VCard Screen 2" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=VCard+Screen+2'">
+                            <img loading="lazy" decoding="async" src="assets/vcard/3.webp" alt="VCard Screen 3" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=VCard+Screen+3'">
+                            <img loading="lazy" decoding="async" src="assets/vcard/4.webp" alt="VCard Screen 4" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=VCard+Screen+4'">
                         </div>
                         <div class="carousel-btn next" onclick="this.previousElementSibling.scrollBy({left: 350, behavior: 'smooth'})">
                             <i data-lucide="chevron-right"></i>
@@ -1107,10 +1131,10 @@
                             <i data-lucide="chevron-left"></i>
                         </div>
                         <div class="carousel">
-                            <img loading="lazy" decoding="async" src="assets/locmefi/1.jpeg" alt="Locmefi Screen 1" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Locmefi+1'">
-                            <img loading="lazy" decoding="async" src="assets/locmefi/2.jpeg" alt="Locmefi Screen 2" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Locmefi+2'">
-                            <img loading="lazy" decoding="async" src="assets/locmefi/3.jpeg" alt="Locmefi Screen 3" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Locmefi+3'">
-                            <img loading="lazy" decoding="async" src="assets/locmefi/4.jpeg" alt="Locmefi Screen 4" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Locmefi+4'">
+                            <img loading="lazy" decoding="async" src="assets/locmefi/1.webp" alt="Locmefi Screen 1" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Locmefi+1'">
+                            <img loading="lazy" decoding="async" src="assets/locmefi/2.webp" alt="Locmefi Screen 2" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Locmefi+2'">
+                            <img loading="lazy" decoding="async" src="assets/locmefi/3.webp" alt="Locmefi Screen 3" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Locmefi+3'">
+                            <img loading="lazy" decoding="async" src="assets/locmefi/4.webp" alt="Locmefi Screen 4" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Locmefi+4'">
                         </div>
                         <div class="carousel-btn next" onclick="this.previousElementSibling.scrollBy({left: 350, behavior: 'smooth'})">
                             <i data-lucide="chevron-right"></i>
@@ -1376,6 +1400,18 @@
             });
         });
         
+        // Spotlight Effect
+        const spotlightCards = document.querySelectorAll('.card, .exp-card, .skill-card');
+        spotlightCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
         // Scroll Listeners
         const backToTop = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
