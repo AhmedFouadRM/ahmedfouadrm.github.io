@@ -1,1435 +1,1046 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ahmed Fouad | Senior Flutter & Mobile Engineer</title>
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Lucide Icons (Lightweight SVG icons) -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- FontAwesome (For brand icons like Google Play & Apple) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
-    <style>
-        :root {
-            /* Deep Space Dark Mode Palette */
-            --bg-color: #0b0c10;
-            --text-main: #c5c6c7;
-            --text-heading: #ffffff;
-            --accent-color: #66fcf1;
-            --accent-dark: #45a29e;
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-            /* Glassmorphism Variables */
-            --card-bg: rgba(31, 40, 51, 0.4);
-            --card-border: rgba(102, 252, 241, 0.15);
-            --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-            --glass-blur: 12px;
-        }
+  <body>
+    <!-- Neon Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: var(--bg-color);
-        }
-        
-        ::selection {
-            background: rgba(102, 252, 241, 0.3);
-            color: #ffffff;
-        }
-        
-        ::-moz-selection {
-            background: rgba(102, 252, 241, 0.3);
-            color: #ffffff;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: rgba(102, 252, 241, 0.3);
-            border-radius: 4px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent-color);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Outfit', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-
-            /* Abstract Background Gradients */
-            background-image:
-                radial-gradient(circle at 15% 50%, rgba(102, 252, 241, 0.08), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(69, 162, 158, 0.1), transparent 30%),
-                radial-gradient(circle at 50% 100%, rgba(102, 252, 241, 0.05), transparent 40%);
-            background-attachment: fixed;
-        }
-
-        /* Navbar */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(11, 12, 16, 0.8);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            z-index: 1000;
-            padding: 15px 0;
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-logo {
-            color: var(--text-heading);
-            font-weight: 700;
-            font-size: 1.2rem;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 25px;
-        }
-
-        .nav-links a {
-            color: var(--text-main);
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 100px 24px 40px;
-            /* Top padding accounts for fixed navbar */
-        }
-
-        /* Typography */
-        h1,
-        h2,
-        h3,
-        h4 {
-            color: var(--text-heading);
-            font-weight: 700;
-        }
-
-        /* Hero Section */
-        header {
-            padding: 60px 0 60px 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-        }
-
-        .hero-title {
-            font-size: clamp(3rem, 8vw, 5.5rem);
-            line-height: 1.1;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #ffffff 0%, #a5a5a5 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -1px;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            color: var(--accent-color);
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .hero-desc {
-            font-size: 1.15rem;
-            max-width: 800px;
-            margin-bottom: 2.5rem;
-            color: #94a3b8;
-            font-weight: 300;
-        }
-
-        /* Call to Action Links */
-        .links {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        @keyframes pulse-glow {
-            0% { box-shadow: 0 0 0 0 rgba(102, 252, 241, 0.2); }
-            70% { box-shadow: 0 0 0 10px rgba(102, 252, 241, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(102, 252, 241, 0); }
-        }
-
-        .links a {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 14px 28px;
-            border-radius: 50px;
-            background: rgba(255, 255, 255, 0.03);
-            color: var(--text-heading);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.05rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            backdrop-filter: blur(10px);
-            animation: pulse-glow 2.5s infinite;
-        }
-
-        .links a:hover {
-            background: rgba(102, 252, 241, 0.1);
-            border-color: var(--accent-color);
-            color: var(--accent-color);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(102, 252, 241, 0.2);
-        }
-
-        /* Section Headings */
-        section {
-            margin-top: 80px;
-            margin-bottom: 60px;
-        }
-
-        section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
-            position: relative;
-        }
-
-        section h2::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -10px;
-            width: 50px;
-            height: 4px;
-            background: var(--accent-color);
-            border-radius: 2px;
-            transition: width 0.4s ease;
-        }
-
-        section:hover h2::after {
-            width: 100%;
-        }
-
-        /* Experience & Education Stacked Cards */
-        .stack-list {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-            position: relative;
-            padding-left: 35px;
-        }
-        
-        .stack-list::before {
-            content: '';
-            position: absolute;
-            left: 5px;
-            top: 20px;
-            bottom: 20px;
-            width: 2px;
-            background: rgba(102, 252, 241, 0.2);
-            box-shadow: 0 0 10px rgba(102, 252, 241, 0.2);
-        }
-
-        .exp-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 30px;
-            backdrop-filter: blur(var(--glass-blur));
-            -webkit-backdrop-filter: blur(var(--glass-blur));
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: visible;
-        }
-        
-        .exp-card::before {
-            content: '';
-            position: absolute;
-            left: -35px;
-            top: 35px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--accent-color);
-            box-shadow: 0 0 10px var(--accent-color);
-            transition: all 0.3s ease;
-            z-index: 2;
-        }
-
-        .exp-card:hover {
-            border-color: rgba(102, 252, 241, 0.5);
-            box-shadow: 0 8px 32px rgba(102, 252, 241, 0.15);
-            transform: translateX(5px);
-            background: rgba(31, 40, 51, 0.7);
-        }
-        
-        .exp-card:hover::before {
-            transform: scale(1.5);
-            box-shadow: 0 0 20px var(--accent-color);
-        }
-
-        .exp-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            margin-bottom: 15px;
-            gap: 15px;
-        }
-
-        .exp-title h3 {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-        }
-
-        .exp-title h4 {
-            color: var(--accent-color);
-            font-weight: 500;
-            font-size: 1.1rem;
-        }
-
-        .exp-meta {
-            text-align: right;
-            font-size: 0.95rem;
-            color: #94a3b8;
-        }
-
-        .exp-meta span {
-            display: block;
-        }
-
-        .exp-date {
-            font-weight: 600;
-            color: var(--text-main);
-            background: rgba(255, 255, 255, 0.05);
-            padding: 4px 12px;
-            border-radius: 20px;
-            margin-bottom: 5px;
-            display: inline-block;
-        }
-
-        .exp-list {
-            list-style: none;
-            margin-top: 15px;
-        }
-
-        .exp-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 12px;
-            color: #c5c6c7;
-            font-weight: 300;
-            line-height: 1.6;
-        }
-
-        .exp-list li i {
-            flex-shrink: 0;
-            margin-top: 4px;
-            color: var(--accent-color);
-            width: 16px;
-            height: 16px;
-        }
-
-        /* Grid & Glassmorphism Project Cards */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 20px;
-            padding: 35px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            backdrop-filter: blur(var(--glass-blur));
-            -webkit-backdrop-filter: blur(var(--glass-blur));
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            box-shadow: var(--card-shadow);
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.03), transparent);
-            transform: skewX(-20deg);
-            transition: all 0.7s ease;
-            z-index: -1;
-        }
-
-        .card:hover::before {
-            left: 150%;
-        }
-
-        .card:hover {
-            transform: translateY(-12px);
-            border-color: var(--accent-color);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 40px rgba(102, 252, 241, 0.35);
-            background: rgba(31, 40, 51, 0.6);
-        }
-        
-        .card:hover h3 {
-            text-shadow: 0 0 15px rgba(102, 252, 241, 0.6);
-            color: var(--accent-color);
-        }
-
-        .card h3 {
-            font-size: 1.7rem;
-            margin-bottom: 15px;
-            color: var(--text-heading);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .card p {
-            color: #94a3b8;
-            margin-bottom: 25px;
-            font-weight: 300;
-        }
-
-        .card ul {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-
-        .card ul li {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 16px;
-            color: var(--text-main);
-            font-size: 0.95rem;
-            font-weight: 400;
-            line-height: 1.6;
-        }
-
-        .card ul li i {
-            flex-shrink: 0;
-            margin-top: 4px;
-            color: var(--accent-color);
-            width: 18px;
-            height: 18px;
-        }
-
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .skill-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 25px;
-            transition: all 0.3s ease;
-        }
-
-        .skill-card:hover {
-            background: rgba(102, 252, 241, 0.05);
-            border-color: rgba(102, 252, 241, 0.2);
-            transform: translateY(-5px);
-        }
-
-        .skill-card h4 {
-            color: var(--text-heading);
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        /* Tags */
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: auto;
-        }
-
-        .tag {
-            background: rgba(102, 252, 241, 0.08);
-            color: var(--accent-color);
-            font-size: 0.85rem;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-weight: 500;
-            border: 1px solid rgba(102, 252, 241, 0.15);
-            transition: all 0.3s ease;
-        }
-
-        .card:hover .tag,
-        .skill-card:hover .tag {
-            background: rgba(102, 252, 241, 0.15);
-            border-color: rgba(102, 252, 241, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .card.wide {
-            grid-column: 1 / -1;
-            flex-direction: row;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .card-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        
-        .card.wide .store-links {
-            margin-top: 25px;
-        }
-
-        .card-gallery {
-            flex: 1.2;
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 550px;
-        }
-
-        .carousel {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .carousel::-webkit-scrollbar {
-            display: none;
-        }
-
-        .carousel img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            scroll-snap-align: center;
-            flex: 0 0 100%;
-        }
-
-        /* Nav Buttons for Carousel */
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(11, 12, 16, 0.7);
-            color: var(--accent-color);
-            border: 1px solid rgba(102, 252, 241, 0.2);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 10;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-        }
-
-        .carousel-btn:hover {
-            background: var(--accent-color);
-            color: var(--bg-color);
-        }
-
-        .carousel-btn.prev {
-            left: 10px;
-        }
-
-        .carousel-btn.next {
-            right: 10px;
-        }
-
-        /* Floating Background Orbs */
-        .bg-orbs {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            pointer-events: none;
-            z-index: -2;
-            overflow: hidden;
-        }
-        
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(102,252,241,0.06) 0%, rgba(102,252,241,0) 70%);
-            animation: drift 20s infinite linear alternate;
-        }
-        
-        @keyframes drift {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(80px, 80px) scale(1.2); }
-        }
-        
-        .orb:nth-child(1) { width: 400px; height: 400px; top: 5%; left: 15%; animation-duration: 25s; }
-        .orb:nth-child(2) { width: 500px; height: 500px; top: 60%; right: 5%; animation-duration: 30s; animation-direction: alternate-reverse; }
-        .orb:nth-child(3) { width: 300px; height: 300px; bottom: 10%; left: 40%; animation-duration: 20s; }
-
-        /* Floating Skills Effect */
-        @keyframes float-icon {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-6px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        .skill-card h4 i {
-            animation: float-icon 3s ease-in-out infinite;
-        }
-        
-        /* Hero Typing Effect */
-        .typewriter {
-            display: inline-block;
-            overflow: hidden;
-            white-space: nowrap;
-            border-right: 2px solid var(--accent-color);
-            animation: typing 2.5s steps(50, end) forwards, blink-caret .75s step-end 5 forwards;
-            width: 48ch; 
-            vertical-align: bottom;
-        }
-        
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 48ch; }
-        }
-        
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: var(--accent-color); }
-        }
-
-        /* Back-to-Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--accent-color);
-            color: var(--bg-color);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(102, 252, 241, 0.4);
-            z-index: 100;
-        }
-        
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .back-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 25px rgba(102, 252, 241, 0.8);
-        }
-
-        /* Interactive Spotlight Effect */
-        .card::after, .exp-card::after, .skill-card::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: inherit;
-            background: radial-gradient(
-                600px circle at var(--mouse-x, -600px) var(--mouse-y, -600px),
-                rgba(102, 252, 241, 0.06),
-                transparent 40%
-            );
-            z-index: 1;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .card:hover::after, .exp-card:hover::after, .skill-card:hover::after {
-            opacity: 1;
-        }
-
-        @media (max-width: 900px) {
-            .card.wide {
-                flex-direction: column;
-            }
-            
-            .card.wide .card-content {
-                display: contents;
-            }
-            
-            .card.wide .card-content > div:first-child {
-                order: 1;
-            }
-            
-            .card-gallery {
-                order: 2;
-                height: 450px;
-                margin-top: 20px;
-                margin-bottom: 25px;
-                width: 100%;
-            }
-            
-            .card.wide .store-links {
-                order: 3;
-                margin-top: 0;
-            }
-            
-            .card.wide .tags {
-                order: 4;
-            }
-
-            .carousel-btn {
-                width: 32px;
-                height: 32px;
-            }
-        }
-
-        .store-links {
-            display: flex;
-            gap: 10px;
-            margin-top: auto;
-            flex-wrap: wrap;
-        }
-
-        .card .tags {
-            margin-top: 20px;
-        }
-
-        .store-links a {
-            color: var(--text-heading);
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            transition: all 0.3s ease;
-            padding: 8px 16px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            flex: 1;
-            white-space: nowrap;
-        }
-
-        .store-links a:hover {
-            color: var(--bg-color);
-            background: var(--accent-color);
-            border-color: var(--accent-color);
-            transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(102, 252, 241, 0.2);
-        }
-
-        /* Notice Box */
-        .notice-box {
-            background: rgba(31, 40, 51, 0.3);
-            border-left: 4px solid var(--accent-color);
-            padding: 24px;
-            border-radius: 0 12px 12px 0;
-            margin: 60px 0;
-            backdrop-filter: blur(10px);
-            display: flex;
-            gap: 15px;
-            align-items: flex-start;
-            font-size: 1.05rem;
-            color: #94a3b8;
-            box-shadow: var(--card-shadow);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-left: 4px solid var(--accent-color);
-        }
-
-        .notice-box i {
-            color: var(--accent-color);
-            flex-shrink: 0;
-        }
-
-        /* Scroll Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-
-        .fade-in.appear {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .delay-1 {
-            transition-delay: 0.05s;
-        }
-
-        .delay-2 {
-            transition-delay: 0.1s;
-        }
-
-        .delay-3 {
-            transition-delay: 0.15s;
-        }
-
-        .delay-4 {
-            transition-delay: 0.2s;
-        }
-
-        @media (max-width: 768px) {
-            .typewriter {
-                white-space: normal;
-                border-right: none;
-                animation: none;
-                width: auto;
-            }
-
-            .hero-title {
-                margin-top: 40px;
-            }
-
-            .links {
-                flex-direction: column;
-            }
-
-            .links a {
-                justify-content: center;
-            }
-
-            .notice-box {
-                flex-direction: column;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            /* Hide nav on mobile for simplicity, or add a hamburger later */
-            .exp-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .exp-meta {
-                text-align: left;
-            }
-        }
-    </style>
-</head>
-
-<body>
     <!-- Floating Orbs Background -->
     <div class="bg-orbs">
-        <div class="orb"></div>
-        <div class="orb"></div>
-        <div class="orb"></div>
+      <div class="orb"></div>
+      <div class="orb"></div>
+      <div class="orb"></div>
     </div>
 
     <!-- Sticky Navbar -->
     <nav class="navbar">
-        <div class="nav-container">
-            <a href="#home" class="nav-logo">
-                <i data-lucide="code-2" color="var(--accent-color)"></i> A. Fouad
-            </a>
-            <div class="nav-links">
-                <a href="#projects">Projects</a>
-                <a href="#experience">Experience</a>
-                <a href="#skills">Skills</a>
-                <a href="#education">Education & Research</a>
-            </div>
+      <div class="nav-container">
+        <a href="#home" class="nav-logo">
+          <i data-lucide="code-2" color="var(--accent-color)"></i> A. Fouad
+        </a>
+        <div class="nav-links">
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
+          <a href="#education">Education & Research</a>
         </div>
+      </div>
     </nav>
 
     <div class="container">
+      <!-- Hero Section -->
+      <header id="home" class="fade-in appear">
+        <h1 class="hero-title">Ahmed Mahmoud Fouad</h1>
+        <div class="hero-subtitle">
+          <i data-lucide="smartphone" width="24" height="24"></i>
+          <span class="typewriter"
+            >Senior Mobile Engineer (Flutter) & AI Researcher</span
+          >
+        </div>
+        <p class="hero-desc">
+          Flutter Developer with a track record of shipping production apps to
+          the Google Play Store and Apple App Store. Combines hands-on
+          engineering with a Master's degree in Artificial Intelligence to build
+          scalable, high-performance applications.
+        </p>
+        <div class="links">
+          <a href="https://github.com/ahmedfouadrm" target="_blank">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="currentColor"
+            >
+              <path
+                d="M12 0C5.37 0 0 5.373 0 12c0 5.302 3.438 9.8 8.205 11.385.6.11.82-.26.82-.577v-2.165c-3.338.726-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.98-.398 3-.403 1.02.005 2.043.137 3 .403 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.625-5.479 5.92.43.37.81 1.102.81 2.222v3.293c0 .32.218.694.825.576C20.565 21.795 24 17.3 24 12c0-6.627-5.373-12-12-12z"
+              />
+            </svg>
+            GitHub
+          </a>
+          <a href="https://linkedin.com/in/ahmedfouadrm" target="_blank">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+            >
+              <path
+                fill="#0A66C2"
+                d="M22.225 0H1.77C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.77 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0zM7.12 20.452H3.558V9.034H7.12v11.418zM5.34 7.466a2.062 2.062 0 1 1 0-4.125 2.063 2.063 0 0 1 0 4.125zM20.452 20.452h-3.562v-5.56c0-1.326-.024-3.037-1.847-3.037-1.85 0-2.133 1.448-2.133 2.944v5.653H9.349V9.034h3.418v1.56h.048c.476-.9 1.636-1.848 3.366-1.848 3.6 0 4.269 2.37 4.269 5.455v6.251z"
+              />
+            </svg>
+            LinkedIn
+          </a>
+          <a href="mailto:AhmedFouad2014@gmail.com">
+            <i data-lucide="mail" width="20" height="20"></i>
+            AhmedFouad2014@gmail.com
+          </a>
+        </div>
+      </header>
 
-        <!-- Hero Section -->
-        <header id="home" class="fade-in appear">
-            <h1 class="hero-title">Ahmed Mahmoud Fouad</h1>
-            <div class="hero-subtitle">
-                <i data-lucide="smartphone" width="24" height="24"></i>
-                <span class="typewriter">Senior Mobile Engineer (Flutter) & AI Researcher</span>
+      <!-- Projects Section -->
+      <section id="projects">
+        <h2 class="fade-in">
+          <i
+            data-lucide="layout-grid"
+            width="32"
+            height="32"
+            color="var(--accent-color)"
+          ></i>
+          Featured Applications
+        </h2>
+
+        <div class="notice-box fade-in">
+          <i data-lucide="info" width="24" height="24"></i>
+          <div>
+            <strong>Note on Commercial Repositories:</strong> Production
+            software systems were engineered under commercial licenses for
+            client organizations. Source code remains proprietary, but
+            highlights and store links are detailed below.
+          </div>
+        </div>
+
+        <div class="grid">
+          <!-- Xeer -->
+          <article class="card wide fade-in delay-1">
+            <div class="card-content">
+              <div>
+                <h3>Xeer</h3>
+                <p>
+                  Multi-module cross-platform application delivering
+                  personalized content modules alongside real-time asset
+                  tracking capabilities.
+                </p>
+                <ul>
+                  <li>
+                    <i data-lucide="check-circle-2"></i> Architected foundation
+                    using Clean Architecture and BLoC.
+                  </li>
+                  <li>
+                    <i data-lucide="check-circle-2"></i> Utilized Retrofit,
+                    build_runner, and auto_route for type-safe execution.
+                  </li>
+                  <li>
+                    <i data-lucide="check-circle-2"></i> Implemented strict
+                    hardware data encryption using flutter_secure_storage.
+                  </li>
+                </ul>
+              </div>
+              <div class="store-links" style="margin-bottom: 20px">
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.xeer.xeer"
+                  target="_blank"
+                  ><i class="fa-brands fa-google-play"></i> Play Store</a
+                >
+              </div>
+              <div class="tags">
+                <span class="tag">Clean Architecture</span>
+                <span class="tag">BLoC</span>
+                <span class="tag">Retrofit</span>
+                <span class="tag">Encryption</span>
+              </div>
             </div>
-            <p class="hero-desc">
-                Flutter Developer with a track record of shipping production apps to the Google Play Store and Apple App
-                Store. Combines hands-on engineering with a Master's degree in Artificial Intelligence to build
-                scalable, high-performance applications.
+
+            <div class="card-gallery">
+              <div
+                class="carousel-btn prev"
+                onclick="
+                  this.nextElementSibling.scrollBy({
+                    left: -350,
+                    behavior: 'smooth',
+                  })
+                "
+              >
+                <i data-lucide="chevron-left"></i>
+              </div>
+              <div class="carousel">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/xeer/1.webp"
+                  alt="Xeer Screen 1"
+                  onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Xeer+Screen+1'
+                  "
+                />
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/xeer/2.webp"
+                  alt="Xeer Screen 2"
+                  onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Xeer+Screen+2'
+                  "
+                />
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/xeer/3.webp"
+                  alt="Xeer Screen 3"
+                  onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Xeer+Screen+3'
+                  "
+                />
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/xeer/4.webp"
+                  alt="Xeer Screen 4"
+                  onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Xeer+Screen+4'
+                  "
+                />
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/xeer/5.webp"
+                  alt="Xeer Screen 5"
+                  onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Xeer+Screen+5'
+                  "
+                />
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/xeer/6.webp"
+                  alt="Xeer Screen 6"
+                  onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Xeer+Screen+6'
+                  "
+                />
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/xeer/7.webp"
+                  alt="Xeer Screen 7"
+                  onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Xeer+Screen+7'
+                  "
+                />
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/xeer/8.webp"
+                  alt="Xeer Screen 8"
+                  onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Xeer+Screen+8'
+                  "
+                />
+              </div>
+              <div
+                class="carousel-btn next"
+                onclick="
+                  this.previousElementSibling.scrollBy({
+                    left: 350,
+                    behavior: 'smooth',
+                  })
+                "
+              >
+                <i data-lucide="chevron-right"></i>
+              </div>
+            </div>
+          </article>
+
+          <!-- Doctoria -->
+          <article class="card wide fade-in delay-2">
+            <div class="card-content">
+              <div>
+                <h3>Doctoria</h3>
+                <p>
+                  Comprehensive mobile healthcare platform featuring real-time
+                  video/voice consultation rooms, medical appointment
+                  management, and homecare service bookings.
+                </p>
+                <ul>
+                  <li>
+                    <i data-lucide="check-circle-2"></i> Integrated ZegoCloud &
+                    Jitsi WebRTC engines for tele-consultation.
+                  </li>
+                  <li>
+                    <i data-lucide="check-circle-2"></i> Configured Firebase
+                    Firestore real-time state sync and FCM notifications.
+                  </li>
+                  <li>
+                    <i data-lucide="check-circle-2"></i> Engineered secure
+                    remote payment gateway integration.
+                  </li>
+                </ul>
+              </div>
+              <div class="store-links" style="margin-bottom: 20px">
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.tailors.doctoria"
+                  target="_blank"
+                  ><i class="fa-brands fa-google-play"></i> Play Store</a
+                >
+                <a
+                  href="https://apps.apple.com/eg/app/doctoria-%D8%AF%D9%83%D8%AA%D9%88%D8%B1%D9%8A%D8%A7/id6502992790"
+                  target="_blank"
+                  ><i
+                    class="fa-brands fa-apple"
+                    style="font-size: 1.15em; margin-bottom: 2px"
+                  ></i>
+                  App Store</a
+                >
+              </div>
+              <div class="tags">
+                <span class="tag">Flutter</span>
+                <span class="tag">Firebase</span>
+                <span class="tag">ZegoCloud</span>
+                <span class="tag">WebRTC</span>
+              </div>
+            </div>
+
+            <div class="card-gallery">
+              <div
+                class="carousel-btn prev"
+                onclick="
+                  this.nextElementSibling.scrollBy({
+                    left: -350,
+                    behavior: 'smooth',
+                  })
+                "
+              >
+                <i data-lucide="chevron-left"></i>
+              </div>
+              <div class="carousel">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/doctoria/1.webp"
+                  alt="Doctoria Screen 1"
+                  onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+1'
+                  "
+                />
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/doctoria/2.webp"
+                  alt="Doctoria Screen 2"
+                  onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+2'
+                  "
+                />
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/doctoria/3.webp"
+                  alt="Doctoria Screen 3"
+                  onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+3'
+                  "
+                />
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/doctoria/4.webp"
+                  alt="Doctoria Screen 4"
+                  onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+4'
+                  "
+                />
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/doctoria/5.webp"
+                  alt="Doctoria Screen 5"
+                  onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+5'
+                  "
+                />
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/doctoria/6.webp"
+                  alt="Doctoria Screen 6"
+                  onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+6'
+                  "
+                />
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/doctoria/7.webp"
+                  alt="Doctoria Screen 7"
+                  onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+7'
+                  "
+                />
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/doctoria/8.webp"
+                  alt="Doctoria Screen 8"
+                  onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+8'
+                  "
+                />
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/doctoria/9.webp"
+                  alt="Doctoria Screen 9"
+                  onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+9'
+                  "
+                />
+              </div>
+              <div
+                class="carousel-btn next"
+                onclick="
+                  this.previousElementSibling.scrollBy({
+                    left: 350,
+                    behavior: 'smooth',
+                  })
+                "
+              >
+                <i data-lucide="chevron-right"></i>
+              </div>
+            </div>
+          </article>
+
+          <!-- VCard -->
+          <article class="card wide fade-in delay-1">
+            <div class="card-content">
+              <div>
+                <h3>VCard</h3>
+                <p>
+                  Digital business card solution enabling contact sharing,
+                  custom QR code generation, and hardware-level transmission.
+                </p>
+                <ul>
+                  <li>
+                    <i data-lucide="check-circle-2"></i> Programmed native NFC
+                    support for physical contact transfers.
+                  </li>
+                  <li>
+                    <i data-lucide="check-circle-2"></i> Built interactive QR
+                    code scanning and generation engine.
+                  </li>
+                </ul>
+              </div>
+              <div class="store-links" style="margin-bottom: 20px">
+                <a
+                  href="https://play.google.com/store/apps/details?id=sa.bittech.vcard"
+                  target="_blank"
+                  ><i class="fa-brands fa-google-play"></i> Play Store</a
+                >
+                <a
+                  href="https://apps.apple.com/us/app/vcard-app/id6745150384"
+                  target="_blank"
+                  ><i
+                    class="fa-brands fa-apple"
+                    style="font-size: 1.15em; margin-bottom: 2px"
+                  ></i>
+                  App Store</a
+                >
+              </div>
+              <div class="tags">
+                <span class="tag">Flutter</span>
+                <span class="tag">Provider</span>
+                <span class="tag">NFC API</span>
+                <span class="tag">QR Engine</span>
+              </div>
+            </div>
+
+            <div class="card-gallery">
+              <div
+                class="carousel-btn prev"
+                onclick="
+                  this.nextElementSibling.scrollBy({
+                    left: -350,
+                    behavior: 'smooth',
+                  })
+                "
+              >
+                <i data-lucide="chevron-left"></i>
+              </div>
+              <div class="carousel">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/vcard/1.webp"
+                  alt="VCard Screen 1"
+                  onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=VCard+Screen+1'
+                  "
+                />
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/vcard/2.webp"
+                  alt="VCard Screen 2"
+                  onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=VCard+Screen+2'
+                  "
+                />
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/vcard/3.webp"
+                  alt="VCard Screen 3"
+                  onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=VCard+Screen+3'
+                  "
+                />
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/vcard/4.webp"
+                  alt="VCard Screen 4"
+                  onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=VCard+Screen+4'
+                  "
+                />
+              </div>
+              <div
+                class="carousel-btn next"
+                onclick="
+                  this.previousElementSibling.scrollBy({
+                    left: 350,
+                    behavior: 'smooth',
+                  })
+                "
+              >
+                <i data-lucide="chevron-right"></i>
+              </div>
+            </div>
+          </article>
+
+          <!-- Locmefi -->
+          <article class="card wide fade-in delay-2">
+            <div class="card-content">
+              <div>
+                <h3>Locmefi</h3>
+                <p>
+                  Location-based application featuring dynamic map components,
+                  user tracking, and automated geofenced alerts.
+                </p>
+                <ul>
+                  <li>
+                    <i data-lucide="check-circle-2"></i> Configured Google Maps
+                    API and background location tracking.
+                  </li>
+                  <li>
+                    <i data-lucide="check-circle-2"></i> Automated
+                    location-triggered push notifications.
+                  </li>
+                </ul>
+              </div>
+              <div class="store-links" style="margin-bottom: 20px">
+                <a
+                  href="https://apps.apple.com/us/app/locmefi/id6744578794"
+                  target="_blank"
+                  ><i
+                    class="fa-brands fa-apple"
+                    style="font-size: 1.15em; margin-bottom: 2px"
+                  ></i>
+                  App Store</a
+                >
+              </div>
+              <div class="tags">
+                <span class="tag">Flutter</span>
+                <span class="tag">Google Maps</span>
+                <span class="tag">Firebase</span>
+              </div>
+            </div>
+
+            <div class="card-gallery">
+              <div
+                class="carousel-btn prev"
+                onclick="
+                  this.nextElementSibling.scrollBy({
+                    left: -350,
+                    behavior: 'smooth',
+                  })
+                "
+              >
+                <i data-lucide="chevron-left"></i>
+              </div>
+              <div class="carousel">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/locmefi/1.webp"
+                  alt="Locmefi Screen 1"
+                  onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Locmefi+1'
+                  "
+                />
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/locmefi/2.webp"
+                  alt="Locmefi Screen 2"
+                  onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Locmefi+2'
+                  "
+                />
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/locmefi/3.webp"
+                  alt="Locmefi Screen 3"
+                  onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Locmefi+3'
+                  "
+                />
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/locmefi/4.webp"
+                  alt="Locmefi Screen 4"
+                  onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Locmefi+4'
+                  "
+                />
+              </div>
+              <div
+                class="carousel-btn next"
+                onclick="
+                  this.previousElementSibling.scrollBy({
+                    left: 350,
+                    behavior: 'smooth',
+                  })
+                "
+              >
+                <i data-lucide="chevron-right"></i>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience">
+        <h2 class="fade-in">
+          <i
+            data-lucide="briefcase"
+            width="32"
+            height="32"
+            color="var(--accent-color)"
+          ></i>
+          Professional Experience
+        </h2>
+
+        <div class="stack-list">
+          <!-- Bit-Tech -->
+          <div class="exp-card fade-in delay-1">
+            <div class="exp-header">
+              <div class="exp-title">
+                <h3>Flutter Developer</h3>
+                <h4>Bit-Tech</h4>
+              </div>
+              <div class="exp-meta">
+                <span class="exp-date">Nov 2024 &mdash; Present</span>
+                <span
+                  ><i
+                    data-lucide="map-pin"
+                    width="14"
+                    height="14"
+                    style="display: inline; margin-right: 4px"
+                  ></i>
+                  Maadi, Cairo</span
+                >
+              </div>
+            </div>
+            <ul class="exp-list">
+              <li>
+                <i data-lucide="chevron-right"></i> Engineered and maintained
+                production-level mobile apps for Android & iOS using Flutter.
+              </li>
+              <li>
+                <i data-lucide="chevron-right"></i> Incorporated Firebase
+                Firestore, authentication, notifications, and analytics to drive
+                user engagement.
+              </li>
+              <li>
+                <i data-lucide="chevron-right"></i> Architected real-time voice
+                & video call features utilizing ZegoCloud, Jitsi, and Firebase.
+              </li>
+              <li>
+                <i data-lucide="chevron-right"></i> Developed secure payment
+                gateway integrations for remote doctor consultations.
+              </li>
+              <li>
+                <i data-lucide="chevron-right"></i> Structured a reusable chat
+                module leveraging Firebase and Jitsi for cross-project
+                integration.
+              </li>
+              <li>
+                <i data-lucide="chevron-right"></i> Managed end-to-end
+                deployment pipelines and published multiple robust applications
+                successfully.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Xeer -->
+          <div class="exp-card fade-in delay-2">
+            <div class="exp-header">
+              <div class="exp-title">
+                <h3>Flutter Developer (Part-Time)</h3>
+                <h4>Xeer</h4>
+              </div>
+              <div class="exp-meta">
+                <span class="exp-date">Jan 2026 &mdash; Present</span>
+                <span
+                  ><i
+                    data-lucide="map-pin"
+                    width="14"
+                    height="14"
+                    style="display: inline; margin-right: 4px"
+                  ></i>
+                  Remote</span
+                >
+              </div>
+            </div>
+            <ul class="exp-list">
+              <li>
+                <i data-lucide="chevron-right"></i> Directed the cross-platform
+                development of a multi-module application delivering
+                personalized content and real-time asset tracking.
+              </li>
+              <li>
+                <i data-lucide="chevron-right"></i> Architected the application
+                foundation utilizing Clean Architecture and BLoC state
+                management to ensure long-term scalability.
+              </li>
+              <li>
+                <i data-lucide="chevron-right"></i> Engineered real-time data
+                streams to efficiently handle dynamic asset calculators and live
+                updates.
+              </li>
+              <li>
+                <i data-lucide="chevron-right"></i> Established strict security
+                protocols for handling sensitive data using
+                flutter_secure_storage and envied.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Modern Academy -->
+          <div class="exp-card fade-in delay-3">
+            <div class="exp-header">
+              <div class="exp-title">
+                <h3>Teaching Assistant</h3>
+                <h4>Modern Academy for Computer Science</h4>
+              </div>
+              <div class="exp-meta">
+                <span class="exp-date">Sep 2018 &mdash; Nov 2024</span>
+                <span
+                  ><i
+                    data-lucide="map-pin"
+                    width="14"
+                    height="14"
+                    style="display: inline; margin-right: 4px"
+                  ></i>
+                  Maadi, Cairo</span
+                >
+              </div>
+            </div>
+            <ul class="exp-list">
+              <li>
+                <i data-lucide="chevron-right"></i> Lectured and led practical
+                labs for Mobile Application Development (Flutter), mentoring
+                1000+ students on state management (BLoC) and clean
+                architecture.
+              </li>
+              <li>
+                <i data-lucide="chevron-right"></i> Taught computer science
+                subjects: Mobile Application Development (Flutter), Compiler
+                Theory (Java), Operating Systems, Image Processing, and
+                Databases.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills">
+        <h2 class="fade-in">
+          <i
+            data-lucide="cpu"
+            width="32"
+            height="32"
+            color="var(--accent-color)"
+          ></i>
+          Technical Skills
+        </h2>
+        <div class="skills-grid">
+          <div class="skill-card fade-in delay-1">
+            <h4>
+              <i
+                data-lucide="code"
+                width="20"
+                height="20"
+                color="var(--accent-color)"
+              ></i>
+              Languages & Frameworks
+            </h4>
+            <div class="tags">
+              <span class="tag">Dart</span>
+              <span class="tag">Flutter</span>
+              <span class="tag">Java</span>
+              <span class="tag">Python</span>
+            </div>
+          </div>
+
+          <div class="skill-card fade-in delay-2">
+            <h4>
+              <i
+                data-lucide="layers"
+                width="20"
+                height="20"
+                color="var(--accent-color)"
+              ></i>
+              Architecture & Patterns
+            </h4>
+            <div class="tags">
+              <span class="tag">Clean Architecture</span>
+              <span class="tag">SOLID</span>
+              <span class="tag">Dependency Injection (get_it)</span>
+              <span class="tag">Repository Pattern</span>
+            </div>
+          </div>
+
+          <div class="skill-card fade-in delay-3">
+            <h4>
+              <i
+                data-lucide="database"
+                width="20"
+                height="20"
+                color="var(--accent-color)"
+              ></i>
+              Storage & State
+            </h4>
+            <div class="tags">
+              <span class="tag">BLoC</span>
+              <span class="tag">Provider</span>
+              <span class="tag">Firebase Firestore</span>
+              <span class="tag">Hive</span>
+              <span class="tag">Secure Storage</span>
+            </div>
+          </div>
+
+          <div class="skill-card fade-in delay-4">
+            <h4>
+              <i
+                data-lucide="server"
+                width="20"
+                height="20"
+                color="var(--accent-color)"
+              ></i>
+              Backend & APIs
+            </h4>
+            <div class="tags">
+              <span class="tag">REST APIs</span>
+              <span class="tag">Retrofit</span>
+              <span class="tag">Firebase Auth & FCM</span>
+              <span class="tag">build_runner</span>
+            </div>
+          </div>
+
+          <div class="skill-card fade-in delay-1">
+            <h4>
+              <i
+                data-lucide="activity"
+                width="20"
+                height="20"
+                color="var(--accent-color)"
+              ></i>
+              Real-Time & Integrations
+            </h4>
+            <div class="tags">
+              <span class="tag">ZegoCloud</span>
+              <span class="tag">Jitsi (WebRTC)</span>
+              <span class="tag">Firebase Realtime</span>
+              <span class="tag">Payment Gateways</span>
+              <span class="tag">Google Maps API</span>
+            </div>
+          </div>
+
+          <div class="skill-card fade-in delay-2">
+            <h4>
+              <i
+                data-lucide="terminal"
+                width="20"
+                height="20"
+                color="var(--accent-color)"
+              ></i>
+              Tools
+            </h4>
+            <div class="tags">
+              <span class="tag">Git / GitHub</span>
+              <span class="tag">auto_route</span>
+              <span class="tag">CI/CD Basics</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education & Research Section -->
+      <section id="education">
+        <h2 class="fade-in">
+          <i
+            data-lucide="graduation-cap"
+            width="32"
+            height="32"
+            color="var(--accent-color)"
+          ></i>
+          Education & Research
+        </h2>
+
+        <div class="stack-list">
+          <!-- Master's -->
+          <div class="exp-card fade-in delay-1">
+            <div class="exp-header">
+              <div class="exp-title">
+                <h3>Master’s Degree in Artificial Intelligence</h3>
+                <h4>Benha University &mdash; Faculty of Computers and AI</h4>
+              </div>
+              <div class="exp-meta">
+                <span class="exp-date">Feb 2019 &mdash; Mar 2026</span>
+                <span
+                  ><i
+                    data-lucide="map-pin"
+                    width="14"
+                    height="14"
+                    style="display: inline; margin-right: 4px"
+                  ></i>
+                  Benha, Egypt</span
+                >
+              </div>
+            </div>
+            <p style="color: #94a3b8; font-weight: 300; margin-bottom: 15px">
+              Specialized in digital forensics and deep learning-based forgery
+              detection. Developed strong skills in AI model design, dataset
+              preparation, and research experimentation.
             </p>
-            <div class="links">
-                <a href="https://github.com/ahmedfouadrm" target="_blank">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                        <path d="M12 0C5.37 0 0 5.373 0 12c0 5.302 3.438 9.8 8.205 11.385.6.11.82-.26.82-.577v-2.165c-3.338.726-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.98-.398 3-.403 1.02.005 2.043.137 3 .403 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.625-5.479 5.92.43.37.81 1.102.81 2.222v3.293c0 .32.218.694.825.576C20.565 21.795 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
-                    </svg> GitHub
+
+            <div
+              style="
+                background: rgba(102, 252, 241, 0.05);
+                border: 1px solid rgba(102, 252, 241, 0.2);
+                padding: 20px;
+                border-radius: 12px;
+                margin-top: 20px;
+              "
+            >
+              <h4
+                style="
+                  color: var(--accent-color);
+                  margin-bottom: 10px;
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                "
+              >
+                <i data-lucide="book-open" width="18" height="18"></i> Published
+                Research
+              </h4>
+              <p style="color: var(--text-heading); font-weight: 500">
+                Multi-branch network for double JPEG detection and localization
+              </p>
+              <p
+                style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 15px"
+              >
+                Published in: Scientific Reports (Nature Portfolio)
+              </p>
+              <div class="store-links" style="margin-top: 0">
+                <a
+                  href="https://doi.org/10.1038/s41598-025-04203-0"
+                  target="_blank"
+                >
+                  Read Paper on Nature.com
+                  <i data-lucide="external-link" width="18" height="18"></i>
                 </a>
-                <a href="https://linkedin.com/in/ahmedfouadrm" target="_blank">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
-                        <path fill="#0A66C2" d="M22.225 0H1.77C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.77 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0zM7.12 20.452H3.558V9.034H7.12v11.418zM5.34 7.466a2.062 2.062 0 1 1 0-4.125 2.063 2.063 0 0 1 0 4.125zM20.452 20.452h-3.562v-5.56c0-1.326-.024-3.037-1.847-3.037-1.85 0-2.133 1.448-2.133 2.944v5.653H9.349V9.034h3.418v1.56h.048c.476-.9 1.636-1.848 3.366-1.848 3.6 0 4.269 2.37 4.269 5.455v6.251z"/>
-                    </svg> LinkedIn
-                </a>
-                <a href="mailto:AhmedFouad2014@gmail.com">
-                    <i data-lucide="mail" width="20" height="20"></i> AhmedFouad2014@gmail.com
-                </a>
+              </div>
             </div>
-        </header>
+          </div>
 
-        <!-- Projects Section -->
-        <section id="projects">
-            <h2 class="fade-in">
-                <i data-lucide="layout-grid" width="32" height="32" color="var(--accent-color)"></i>
-                Featured Applications
-            </h2>
-
-            <div class="notice-box fade-in">
-                <i data-lucide="info" width="24" height="24"></i>
-                <div>
-                    <strong>Note on Commercial Repositories:</strong> Production software systems were engineered under
-                    commercial licenses for client organizations. Source code remains proprietary, but highlights and
-                    store links are detailed below.
-                </div>
+          <!-- Bachelor's -->
+          <div class="exp-card fade-in delay-2">
+            <div class="exp-header">
+              <div class="exp-title">
+                <h3>Bachelor of Computer Science (Excellence with Honors)</h3>
+                <h4>Modern Academy for Computer Science</h4>
+              </div>
+              <div class="exp-meta">
+                <span class="exp-date">Sep 2014 &mdash; Jun 2018</span>
+                <span
+                  ><i
+                    data-lucide="map-pin"
+                    width="14"
+                    height="14"
+                    style="display: inline; margin-right: 4px"
+                  ></i>
+                  Cairo, Egypt</span
+                >
+              </div>
             </div>
-
-            <div class="grid">
-
-                <!-- Xeer -->
-                <article class="card wide fade-in delay-1">
-                    <div class="card-content">
-                        <div>
-                            <h3>Xeer</h3>
-                            <p>Multi-module cross-platform application delivering personalized content modules alongside
-                                real-time asset tracking capabilities.</p>
-                            <ul>
-                                <li><i data-lucide="check-circle-2"></i> Architected foundation using Clean Architecture
-                                    and BLoC.</li>
-                                <li><i data-lucide="check-circle-2"></i> Utilized Retrofit, build_runner, and auto_route
-                                    for type-safe execution.</li>
-                                <li><i data-lucide="check-circle-2"></i> Implemented strict hardware data encryption
-                                    using flutter_secure_storage.</li>
-                            </ul>
-                        </div>
-                        <div class="store-links" style="margin-bottom: 20px;">
-                            <a href="https://play.google.com/store/apps/details?id=com.xeer.xeer" target="_blank"><i
-                                    class="fa-brands fa-google-play"></i> Play Store</a>
-                        </div>
-                        <div class="tags">
-                            <span class="tag">Clean Architecture</span>
-                            <span class="tag">BLoC</span>
-                            <span class="tag">Retrofit</span>
-                            <span class="tag">Encryption</span>
-                        </div>
-                    </div>
-
-                    <div class="card-gallery">
-                        <div class="carousel-btn prev"
-                            onclick="this.nextElementSibling.scrollBy({left: -350, behavior: 'smooth'})">
-                            <i data-lucide="chevron-left"></i>
-                        </div>
-                        <div class="carousel">
-                            <img loading="lazy" decoding="async" src="assets/xeer/1.webp" alt="Xeer Screen 1"
-                                onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Xeer+Screen+1'">
-                            <img loading="lazy" decoding="async" src="assets/xeer/2.webp" alt="Xeer Screen 2"
-                                onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Xeer+Screen+2'">
-                            <img loading="lazy" decoding="async" src="assets/xeer/3.webp" alt="Xeer Screen 3"
-                                onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Xeer+Screen+3'">
-                            <img loading="lazy" decoding="async" src="assets/xeer/4.webp" alt="Xeer Screen 4"
-                                onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Xeer+Screen+4'">
-                            <img loading="lazy" decoding="async" src="assets/xeer/5.webp" alt="Xeer Screen 5"
-                                onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Xeer+Screen+5'">
-                            <img loading="lazy" decoding="async" src="assets/xeer/6.webp" alt="Xeer Screen 6"
-                                onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Xeer+Screen+6'">
-                            <img loading="lazy" decoding="async" src="assets/xeer/7.webp" alt="Xeer Screen 7"
-                                onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Xeer+Screen+7'">
-                            <img loading="lazy" decoding="async" src="assets/xeer/8.webp" alt="Xeer Screen 8"
-                                onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Xeer+Screen+8'">
-                        </div>
-                        <div class="carousel-btn next"
-                            onclick="this.previousElementSibling.scrollBy({left: 350, behavior: 'smooth'})">
-                            <i data-lucide="chevron-right"></i>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Doctoria -->
-                <article class="card wide fade-in delay-2">
-                    <div class="card-content">
-                        <div>
-                            <h3>Doctoria</h3>
-                            <p>Comprehensive mobile healthcare platform featuring real-time video/voice consultation rooms, medical appointment management, and homecare service bookings.</p>
-                            <ul>
-                                <li><i data-lucide="check-circle-2"></i> Integrated ZegoCloud & Jitsi WebRTC engines for tele-consultation.</li>
-                                <li><i data-lucide="check-circle-2"></i> Configured Firebase Firestore real-time state sync and FCM notifications.</li>
-                                <li><i data-lucide="check-circle-2"></i> Engineered secure remote payment gateway integration.</li>
-                            </ul>
-                        </div>
-                        <div class="store-links" style="margin-bottom: 20px;">
-                            <a href="https://play.google.com/store/apps/details?id=com.tailors.doctoria" target="_blank"><i class="fa-brands fa-google-play"></i> Play Store</a>
-                            <a href="https://apps.apple.com/eg/app/doctoria-%D8%AF%D9%83%D8%AA%D9%88%D8%B1%D9%8A%D8%A7/id6502992790" target="_blank"><i class="fa-brands fa-apple" style="font-size: 1.15em; margin-bottom: 2px;"></i> App Store</a>
-                        </div>
-                        <div class="tags">
-                            <span class="tag">Flutter</span>
-                            <span class="tag">Firebase</span>
-                            <span class="tag">ZegoCloud</span>
-                            <span class="tag">WebRTC</span>
-                        </div>
-                    </div>
-                    
-                    <div class="card-gallery">
-                        <div class="carousel-btn prev" onclick="this.nextElementSibling.scrollBy({left: -350, behavior: 'smooth'})">
-                            <i data-lucide="chevron-left"></i>
-                        </div>
-                        <div class="carousel">
-                            <img loading="lazy" decoding="async" src="assets/doctoria/1.webp" alt="Doctoria Screen 1" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+1'">
-                            <img loading="lazy" decoding="async" src="assets/doctoria/2.webp" alt="Doctoria Screen 2" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+2'">
-                            <img loading="lazy" decoding="async" src="assets/doctoria/3.webp" alt="Doctoria Screen 3" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+3'">
-                            <img loading="lazy" decoding="async" src="assets/doctoria/4.webp" alt="Doctoria Screen 4" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+4'">
-                            <img loading="lazy" decoding="async" src="assets/doctoria/5.webp" alt="Doctoria Screen 5" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+5'">
-                            <img loading="lazy" decoding="async" src="assets/doctoria/6.webp" alt="Doctoria Screen 6" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+6'">
-                            <img loading="lazy" decoding="async" src="assets/doctoria/7.webp" alt="Doctoria Screen 7" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+7'">
-                            <img loading="lazy" decoding="async" src="assets/doctoria/8.webp" alt="Doctoria Screen 8" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+8'">
-                            <img loading="lazy" decoding="async" src="assets/doctoria/9.webp" alt="Doctoria Screen 9" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+9'">
-                        </div>
-                        <div class="carousel-btn next" onclick="this.previousElementSibling.scrollBy({left: 350, behavior: 'smooth'})">
-                            <i data-lucide="chevron-right"></i>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- VCard -->
-                <article class="card wide fade-in delay-1">
-                    <div class="card-content">
-                        <div>
-                            <h3>VCard</h3>
-                            <p>Digital business card solution enabling contact sharing, custom QR code generation, and hardware-level transmission.</p>
-                            <ul>
-                                <li><i data-lucide="check-circle-2"></i> Programmed native NFC support for physical contact transfers.</li>
-                                <li><i data-lucide="check-circle-2"></i> Built interactive QR code scanning and generation engine.</li>
-                            </ul>
-                        </div>
-                        <div class="store-links" style="margin-bottom: 20px;">
-                            <a href="https://play.google.com/store/apps/details?id=sa.bittech.vcard" target="_blank"><i class="fa-brands fa-google-play"></i> Play Store</a>
-                            <a href="https://apps.apple.com/us/app/vcard-app/id6745150384" target="_blank"><i class="fa-brands fa-apple" style="font-size: 1.15em; margin-bottom: 2px;"></i> App Store</a>
-                        </div>
-                        <div class="tags">
-                            <span class="tag">Flutter</span>
-                            <span class="tag">Provider</span>
-                            <span class="tag">NFC API</span>
-                            <span class="tag">QR Engine</span>
-                        </div>
-                    </div>
-                    
-                    <div class="card-gallery">
-                        <div class="carousel-btn prev" onclick="this.nextElementSibling.scrollBy({left: -350, behavior: 'smooth'})">
-                            <i data-lucide="chevron-left"></i>
-                        </div>
-                        <div class="carousel">
-                            <img loading="lazy" decoding="async" src="assets/vcard/1.webp" alt="VCard Screen 1" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=VCard+Screen+1'">
-                            <img loading="lazy" decoding="async" src="assets/vcard/2.webp" alt="VCard Screen 2" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=VCard+Screen+2'">
-                            <img loading="lazy" decoding="async" src="assets/vcard/3.webp" alt="VCard Screen 3" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=VCard+Screen+3'">
-                            <img loading="lazy" decoding="async" src="assets/vcard/4.webp" alt="VCard Screen 4" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=VCard+Screen+4'">
-                        </div>
-                        <div class="carousel-btn next" onclick="this.previousElementSibling.scrollBy({left: 350, behavior: 'smooth'})">
-                            <i data-lucide="chevron-right"></i>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Locmefi -->
-                <article class="card wide fade-in delay-2">
-                    <div class="card-content">
-                        <div>
-                            <h3>Locmefi</h3>
-                            <p>Location-based application featuring dynamic map components, user tracking, and automated geofenced alerts.</p>
-                            <ul>
-                                <li><i data-lucide="check-circle-2"></i> Configured Google Maps API and background location tracking.</li>
-                                <li><i data-lucide="check-circle-2"></i> Automated location-triggered push notifications.</li>
-                            </ul>
-                        </div>
-                        <div class="store-links" style="margin-bottom: 20px;">
-                            <a href="https://apps.apple.com/us/app/locmefi/id6744578794" target="_blank"><i class="fa-brands fa-apple" style="font-size: 1.15em; margin-bottom: 2px;"></i> App Store</a>
-                        </div>
-                        <div class="tags">
-                            <span class="tag">Flutter</span>
-                            <span class="tag">Google Maps</span>
-                            <span class="tag">Firebase</span>
-                        </div>
-                    </div>
-                    
-                    <div class="card-gallery">
-                        <div class="carousel-btn prev" onclick="this.nextElementSibling.scrollBy({left: -350, behavior: 'smooth'})">
-                            <i data-lucide="chevron-left"></i>
-                        </div>
-                        <div class="carousel">
-                            <img loading="lazy" decoding="async" src="assets/locmefi/1.webp" alt="Locmefi Screen 1" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Locmefi+1'">
-                            <img loading="lazy" decoding="async" src="assets/locmefi/2.webp" alt="Locmefi Screen 2" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Locmefi+2'">
-                            <img loading="lazy" decoding="async" src="assets/locmefi/3.webp" alt="Locmefi Screen 3" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Locmefi+3'">
-                            <img loading="lazy" decoding="async" src="assets/locmefi/4.webp" alt="Locmefi Screen 4" onerror="this.src='https://placehold.co/400x800/1f2833/66fcf1?text=Locmefi+4'">
-                        </div>
-                        <div class="carousel-btn next" onclick="this.previousElementSibling.scrollBy({left: 350, behavior: 'smooth'})">
-                            <i data-lucide="chevron-right"></i>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience">
-            <h2 class="fade-in">
-                <i data-lucide="briefcase" width="32" height="32" color="var(--accent-color)"></i>
-                Professional Experience
-            </h2>
-
-            <div class="stack-list">
-                <!-- Bit-Tech -->
-                <div class="exp-card fade-in delay-1">
-                    <div class="exp-header">
-                        <div class="exp-title">
-                            <h3>Flutter Developer</h3>
-                            <h4>Bit-Tech</h4>
-                        </div>
-                        <div class="exp-meta">
-                            <span class="exp-date">Nov 2024 &mdash; Present</span>
-                            <span><i data-lucide="map-pin" width="14" height="14"
-                                    style="display:inline; margin-right:4px;"></i> Maadi, Cairo</span>
-                        </div>
-                    </div>
-                    <ul class="exp-list">
-                        <li><i data-lucide="chevron-right"></i> Engineered and maintained production-level mobile apps
-                            for Android & iOS using Flutter.</li>
-                        <li><i data-lucide="chevron-right"></i> Incorporated Firebase Firestore, authentication,
-                            notifications, and analytics to drive user engagement.</li>
-                        <li><i data-lucide="chevron-right"></i> Architected real-time voice & video call features
-                            utilizing ZegoCloud, Jitsi, and Firebase.</li>
-                        <li><i data-lucide="chevron-right"></i> Developed secure payment gateway integrations for remote
-                            doctor consultations.</li>
-                        <li><i data-lucide="chevron-right"></i> Structured a reusable chat module leveraging Firebase
-                            and Jitsi for cross-project integration.</li>
-                        <li><i data-lucide="chevron-right"></i> Managed end-to-end deployment pipelines and published
-                            multiple robust applications successfully.</li>
-                    </ul>
-                </div>
-
-                <!-- Xeer -->
-                <div class="exp-card fade-in delay-2">
-                    <div class="exp-header">
-                        <div class="exp-title">
-                            <h3>Flutter Developer (Part-Time)</h3>
-                            <h4>Xeer</h4>
-                        </div>
-                        <div class="exp-meta">
-                            <span class="exp-date">Jan 2026 &mdash; Present</span>
-                            <span><i data-lucide="map-pin" width="14" height="14"
-                                    style="display:inline; margin-right:4px;"></i> Remote</span>
-                        </div>
-                    </div>
-                    <ul class="exp-list">
-                        <li><i data-lucide="chevron-right"></i> Directed the cross-platform development of a
-                            multi-module application delivering personalized content and real-time asset tracking.</li>
-                        <li><i data-lucide="chevron-right"></i> Architected the application foundation utilizing Clean
-                            Architecture and BLoC state management to ensure long-term scalability.</li>
-                        <li><i data-lucide="chevron-right"></i> Engineered real-time data streams to efficiently handle
-                            dynamic asset calculators and live updates.</li>
-                        <li><i data-lucide="chevron-right"></i> Established strict security protocols for handling
-                            sensitive data using flutter_secure_storage and envied.</li>
-                    </ul>
-                </div>
-
-                <!-- Modern Academy -->
-                <div class="exp-card fade-in delay-3">
-                    <div class="exp-header">
-                        <div class="exp-title">
-                            <h3>Teaching Assistant</h3>
-                            <h4>Modern Academy for Computer Science</h4>
-                        </div>
-                        <div class="exp-meta">
-                            <span class="exp-date">Sep 2018 &mdash; Nov 2024</span>
-                            <span><i data-lucide="map-pin" width="14" height="14"
-                                    style="display:inline; margin-right:4px;"></i> Maadi, Cairo</span>
-                        </div>
-                    </div>
-                    <ul class="exp-list">
-                        <li><i data-lucide="chevron-right"></i> Lectured and led practical labs for Mobile Application
-                            Development (Flutter), mentoring 1000+ students on state management (BLoC) and clean
-                            architecture.</li>
-                        <li><i data-lucide="chevron-right"></i> Taught computer science subjects: Mobile Application
-                            Development (Flutter), Compiler Theory (Java), Operating Systems, Image Processing, and
-                            Databases.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills">
-            <h2 class="fade-in">
-                <i data-lucide="cpu" width="32" height="32" color="var(--accent-color)"></i>
-                Technical Skills
-            </h2>
-            <div class="skills-grid">
-
-                <div class="skill-card fade-in delay-1">
-                    <h4><i data-lucide="code" width="20" height="20" color="var(--accent-color)"></i> Languages &
-                        Frameworks</h4>
-                    <div class="tags">
-                        <span class="tag">Dart</span>
-                        <span class="tag">Flutter</span>
-                        <span class="tag">Java</span>
-                        <span class="tag">Python</span>
-                    </div>
-                </div>
-
-                <div class="skill-card fade-in delay-2">
-                    <h4><i data-lucide="layers" width="20" height="20" color="var(--accent-color)"></i> Architecture &
-                        Patterns</h4>
-                    <div class="tags">
-                        <span class="tag">Clean Architecture</span>
-                        <span class="tag">SOLID</span>
-                        <span class="tag">Dependency Injection (get_it)</span>
-                        <span class="tag">Repository Pattern</span>
-                    </div>
-                </div>
-
-                <div class="skill-card fade-in delay-3">
-                    <h4><i data-lucide="database" width="20" height="20" color="var(--accent-color)"></i> Storage &
-                        State</h4>
-                    <div class="tags">
-                        <span class="tag">BLoC</span>
-                        <span class="tag">Provider</span>
-                        <span class="tag">Firebase Firestore</span>
-                        <span class="tag">Hive</span>
-                        <span class="tag">Secure Storage</span>
-                    </div>
-                </div>
-
-                <div class="skill-card fade-in delay-4">
-                    <h4><i data-lucide="server" width="20" height="20" color="var(--accent-color)"></i> Backend & APIs
-                    </h4>
-                    <div class="tags">
-                        <span class="tag">REST APIs</span>
-                        <span class="tag">Retrofit</span>
-                        <span class="tag">Firebase Auth & FCM</span>
-                        <span class="tag">build_runner</span>
-                    </div>
-                </div>
-
-                <div class="skill-card fade-in delay-1">
-                    <h4><i data-lucide="activity" width="20" height="20" color="var(--accent-color)"></i> Real-Time &
-                        Integrations</h4>
-                    <div class="tags">
-                        <span class="tag">ZegoCloud</span>
-                        <span class="tag">Jitsi (WebRTC)</span>
-                        <span class="tag">Firebase Realtime</span>
-                        <span class="tag">Payment Gateways</span>
-                        <span class="tag">Google Maps API</span>
-                    </div>
-                </div>
-
-                <div class="skill-card fade-in delay-2">
-                    <h4><i data-lucide="terminal" width="20" height="20" color="var(--accent-color)"></i> Tools</h4>
-                    <div class="tags">
-                        <span class="tag">Git / GitHub</span>
-                        <span class="tag">auto_route</span>
-                        <span class="tag">CI/CD Basics</span>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Education & Research Section -->
-        <section id="education">
-            <h2 class="fade-in">
-                <i data-lucide="graduation-cap" width="32" height="32" color="var(--accent-color)"></i>
-                Education & Research
-            </h2>
-
-            <div class="stack-list">
-                <!-- Master's -->
-                <div class="exp-card fade-in delay-1">
-                    <div class="exp-header">
-                        <div class="exp-title">
-                            <h3>Master’s Degree in Artificial Intelligence</h3>
-                            <h4>Benha University &mdash; Faculty of Computers and AI</h4>
-                        </div>
-                        <div class="exp-meta">
-                            <span class="exp-date">Feb 2019 &mdash; Mar 2026</span>
-                            <span><i data-lucide="map-pin" width="14" height="14"
-                                    style="display:inline; margin-right:4px;"></i> Benha, Egypt</span>
-                        </div>
-                    </div>
-                    <p style="color: #94a3b8; font-weight: 300; margin-bottom: 15px;">Specialized in digital forensics
-                        and deep learning-based forgery detection. Developed strong skills in AI model design, dataset
-                        preparation, and research experimentation.</p>
-
-                    <div
-                        style="background: rgba(102, 252, 241, 0.05); border: 1px solid rgba(102, 252, 241, 0.2); padding: 20px; border-radius: 12px; margin-top: 20px;">
-                        <h4
-                            style="color: var(--accent-color); margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
-                            <i data-lucide="book-open" width="18" height="18"></i> Published Research
-                        </h4>
-                        <p style="color: var(--text-heading); font-weight: 500;">Multi-branch network for double JPEG
-                            detection and localization</p>
-                        <p style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 15px;">Published in: Scientific
-                            Reports (Nature Portfolio)</p>
-                        <div class="store-links" style="margin-top: 0;">
-                            <a href="https://doi.org/10.1038/s41598-025-04203-0" target="_blank">
-                                Read Paper on Nature.com <i data-lucide="external-link" width="18" height="18"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Bachelor's -->
-                <div class="exp-card fade-in delay-2">
-                    <div class="exp-header">
-                        <div class="exp-title">
-                            <h3>Bachelor of Computer Science (Excellence with Honors)</h3>
-                            <h4>Modern Academy for Computer Science</h4>
-                        </div>
-                        <div class="exp-meta">
-                            <span class="exp-date">Sep 2014 &mdash; Jun 2018</span>
-                            <span><i data-lucide="map-pin" width="14" height="14"
-                                    style="display:inline; margin-right:4px;"></i> Cairo, Egypt</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+          </div>
+        </div>
+      </section>
     </div>
 
     <!-- Initialize Icons and Scroll Animations -->
-    <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
-
-        // Intersection Observer for Scroll Animations
-        document.addEventListener("DOMContentLoaded", function () {
-            const faders = document.querySelectorAll('.fade-in:not(.appear)');
-
-            const appearOptions = {
-                threshold: 0,
-                rootMargin: "0px 0px 100px 0px"
-            };
-
-            const appearOnScroll = new IntersectionObserver(function (entries, observer) {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) {
-                        return;
-                    } else {
-                        entry.target.classList.add('appear');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, appearOptions);
-
-            faders.forEach(fader => {
-                appearOnScroll.observe(fader);
-            });
-        });
-        
-        // Spotlight Effect
-        const spotlightCards = document.querySelectorAll('.card, .exp-card, .skill-card');
-        spotlightCards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
-            });
-        });
-
-        // Scroll Listeners
-        const backToTop = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
-            const scrolled = window.scrollY;
-
-            // Back-to-Top Button Logic
-            if (scrolled > 500) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-        });
-    </script>
+    <script src="script.js" defer></script>
 
     <!-- Back to Top Button -->
     <a href="#home" class="back-to-top" id="backToTop">
-        <i data-lucide="arrow-up"></i>
+      <i data-lucide="arrow-up"></i>
     </a>
-</body>
-
+  </body>
 </html>
