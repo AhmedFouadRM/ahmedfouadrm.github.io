@@ -370,7 +370,8 @@ section:hover h2::after {
   line-height: 1.6;
 }
 
-.exp-list li i {
+.exp-list li i,
+.exp-list li svg {
   flex-shrink: 0;
   margin-top: 4px;
   color: var(--accent-color);
@@ -381,7 +382,7 @@ section:hover h2::after {
 /* Grid & Glassmorphism Project Cards */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 30px;
 }
 
@@ -469,7 +470,8 @@ section:hover h2::after {
   line-height: 1.6;
 }
 
-.card ul li i {
+.card ul li i,
+.card ul li svg {
   flex-shrink: 0;
   margin-top: 4px;
   color: var(--accent-color);
@@ -568,6 +570,9 @@ section:hover h2::after {
   width: 100%;
   height: 100%;
   display: flex;
+  gap: 12px;
+  padding: 16px 58px;
+  scroll-padding: 0 58px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
@@ -582,12 +587,15 @@ section:hover h2::after {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  scroll-snap-align: center;
-  flex: 0 0 100%;
+  scroll-snap-align: start;
+  flex: 0 0 calc(50% - 6px);
+  border-radius: 14px;
 }
 
 /* Nav Buttons for Carousel */
 .carousel-btn {
+  font: inherit;
+  padding: 0;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -604,6 +612,11 @@ section:hover h2::after {
   z-index: 10;
   transition: all 0.3s ease;
   backdrop-filter: blur(5px);
+}
+
+.carousel-btn:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
 }
 
 .carousel-btn:hover {
@@ -794,7 +807,93 @@ section:hover h2::after {
   opacity: 1;
 }
 
+/* Compact Project Cards (side by side) */
+.card.compact {
+  grid-column: span 1;
+  gap: 24px;
+}
+
+.card.compact .card-gallery {
+  flex: none;
+  width: 100%;
+  height: 440px;
+}
+
+/* Nav Toggle (mobile only) */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: var(--text-heading);
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.nav-toggle:focus-visible,
+.nav-links a:focus-visible,
+.links a:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* Primary Call-to-Action Button */
+.links a.primary {
+  background: var(--accent-color);
+  color: var(--bg-color);
+  border-color: var(--accent-color);
+}
+
+.links a.primary:hover {
+  background: #8ffdf6;
+  color: var(--bg-color);
+}
+
+.exp-list a {
+  color: var(--accent-color);
+}
+
+/* Contact Section */
+.contact {
+  margin-top: 40px;
+  padding: 50px 40px;
+  border-radius: 20px;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  text-align: center;
+}
+
+.contact h2 {
+  justify-content: center;
+}
+
+.contact p {
+  max-width: 560px;
+  margin: 0 auto 30px;
+  font-size: 1.1rem;
+}
+
+.contact .links {
+  justify-content: center;
+}
+
+.site-footer {
+  text-align: center;
+  padding: 30px 24px 50px;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
 @media (max-width: 900px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .card.wide {
     flex-direction: column;
   }
@@ -944,11 +1043,55 @@ section:hover h2::after {
     flex-direction: column;
   }
 
+  .nav-toggle {
+    display: inline-flex;
+  }
+
   .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 24px 16px;
+    background: rgba(11, 12, 16, 0.97);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 14px 0;
+    font-size: 1.05rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .nav-links a:last-child {
+    border-bottom: none;
+  }
+
+  /* One screenshot plus a peek of the next; swipe instead of arrows */
+  .carousel {
+    padding: 16px;
+    scroll-padding: 0 16px;
+  }
+
+  .carousel img {
+    flex: 0 0 78%;
+  }
+
+  .carousel-btn {
     display: none;
   }
 
-  /* Hide nav on mobile for simplicity, or add a hamburger later */
+  .contact {
+    padding: 36px 20px;
+  }
+
   .exp-header {
     flex-direction: column;
     align-items: flex-start;

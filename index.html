@@ -5,6 +5,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ahmed Fouad | Flutter Developer &amp; Software Engineer</title>
+  <meta name="description"
+    content="Ahmed Fouad: Flutter engineer in Cairo. Core developer on the Doctoria telehealth app, main contributor to Xeer, native Swift/Kotlin platform channels, M.Sc. in AI." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ahmedfouadrm.github.io/" />
+  <meta property="og:title" content="Ahmed Fouad | Flutter Developer &amp; Software Engineer" />
+  <meta property="og:description"
+    content="Core Flutter developer on Doctoria (telehealth) and main contributor to Xeer (personal finance). Native Bluetooth medical-device integration, video calls, payments." />
+  <meta property="og:image" content="https://ahmedfouadrm.github.io/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0c10'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-size='30' font-weight='700' text-anchor='middle' fill='%2366fcf1'%3EAF%3C/text%3E%3C/svg%3E" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,12 +25,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Lucide Icons (Lightweight SVG icons) -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
 
   <!-- FontAwesome (For brand icons like Google Play & Apple) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=5" />
 </head>
 
 <body>
@@ -37,11 +50,15 @@
       <a href="#home" class="nav-logo">
         <i data-lucide="code-2" color="var(--accent-color)"></i> A. Fouad
       </a>
-      <div class="nav-links">
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <i data-lucide="menu"></i>
+      </button>
+      <div class="nav-links" id="nav-links">
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#education">Education & Research</a>
+        <a href="#contact">Contact</a>
       </div>
     </div>
   </nav>
@@ -55,12 +72,17 @@
         <span class="typewriter">Software Engineer | Flutter Developer | M.Sc. in AI</span>
       </div>
       <p class="hero-desc">
-        Software Engineer &amp; Flutter Developer with 3+ years of professional experience architecting and shipping
-        production cross-platform mobile applications on the <strong>Apple App Store</strong> and <strong>Google Play
-          Store</strong>. Expert in Clean Architecture, BLoC, real-time WebRTC audio/video engines, fintech payment
-        integrations, and published deep learning research in <em>Nature Scientific Reports</em>.
+        Flutter engineer with 3+ years building iOS &amp; Android apps, with production apps live on the <strong>App
+          Store</strong> and <strong>Google Play</strong>. Core developer on <strong>Doctoria</strong>, a telehealth platform, and main
+        contributor to <strong>Xeer</strong>, a personal-finance app. I go below the Flutter layer when needed: native
+        Swift/Kotlin platform channels for Bluetooth medical devices, and CallKit for video calls. M.Sc. in AI with
+        research published in <em>Scientific Reports</em> (Nature Portfolio).
       </p>
       <div class="links">
+        <a href="assets/Ahmed-Fouad-CV.pdf" class="primary" download>
+          <i data-lucide="download" width="20" height="20"></i>
+          Download CV
+        </a>
         <a href="https://github.com/ahmedfouadrm" target="_blank">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
             <path
@@ -100,28 +122,122 @@
       </div>
 
       <div class="grid">
+        <!-- Doctoria -->
+        <article class="card wide fade-in delay-2">
+          <div class="card-content">
+            <div>
+              <h3>Doctoria</h3>
+              <p>
+                Telehealth platform for video consultations, clinic and home-care
+                bookings, medical records, prescriptions, and vitals from
+                Bluetooth medical devices. I'm a core developer and the top
+                contributor (1,000+ commits) on a codebase with 29 feature
+                modules, 3 build flavors, and full Arabic/English support.
+              </p>
+              <ul>
+                <li>
+                  <i data-lucide="check-circle-2"></i> Native iHealth Bluetooth
+                  integration (blood pressure, glucose, SpO2, scale,
+                  thermometer) via platform channels in Swift and Kotlin.
+                </li>
+                <li>
+                  <i data-lucide="check-circle-2"></i> ZegoCloud / Jitsi video
+                  consultations with native CallKit incoming calls.
+                </li>
+                <li>
+                  <i data-lucide="check-circle-2"></i> Fawaterak payments: cards,
+                  Fawry, Aman, and mobile wallets.
+                </li>
+              </ul>
+            </div>
+            <div class="store-links" style="margin-bottom: 20px">
+              <a href="https://play.google.com/store/apps/details?id=com.tailors.doctoria" target="_blank"><i
+                  class="fa-brands fa-google-play"></i> Play Store</a>
+              <a href="https://apps.apple.com/eg/app/doctoria-%D8%AF%D9%83%D8%AA%D9%88%D8%B1%D9%8A%D8%A7/id6502992790"
+                target="_blank"><i class="fa-brands fa-apple" style="font-size: 1.15em; margin-bottom: 2px"></i>
+                App Store</a>
+            </div>
+            <div class="tags">
+              <span class="tag">Swift / Kotlin</span>
+              <span class="tag">Bluetooth LE</span>
+              <span class="tag">ZegoCloud</span>
+              <span class="tag">CallKit</span>
+              <span class="tag">Firestore</span>
+            </div>
+          </div>
+
+          <div class="card-gallery">
+            <button type="button" class="carousel-btn prev" aria-label="Previous screenshot">
+              <i data-lucide="chevron-left"></i>
+            </button>
+            <div class="carousel">
+              <img loading="lazy" decoding="async" src="assets/doctoria/1.webp" alt="Doctoria Screen 1" onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+1'
+                  " />
+              <img loading="lazy" decoding="async" src="assets/doctoria/2.webp" alt="Doctoria Screen 2" onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+2'
+                  " />
+              <img loading="lazy" decoding="async" src="assets/doctoria/3.webp" alt="Doctoria Screen 3" onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+3'
+                  " />
+              <img loading="lazy" decoding="async" src="assets/doctoria/4.webp" alt="Doctoria Screen 4" onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+4'
+                  " />
+              <img loading="lazy" decoding="async" src="assets/doctoria/5.webp" alt="Doctoria Screen 5" onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+5'
+                  " />
+              <img loading="lazy" decoding="async" src="assets/doctoria/6.webp" alt="Doctoria Screen 6" onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+6'
+                  " />
+              <img loading="lazy" decoding="async" src="assets/doctoria/7.webp" alt="Doctoria Screen 7" onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+7'
+                  " />
+              <img loading="lazy" decoding="async" src="assets/doctoria/8.webp" alt="Doctoria Screen 8" onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+8'
+                  " />
+              <img loading="lazy" decoding="async" src="assets/doctoria/9.webp" alt="Doctoria Screen 9" onerror="
+                    this.src =
+                      'https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+9'
+                  " />
+            </div>
+            <button type="button" class="carousel-btn next" aria-label="Next screenshot">
+              <i data-lucide="chevron-right"></i>
+            </button>
+          </div>
+        </article>
+
         <!-- Xeer -->
         <article class="card wide fade-in delay-1">
           <div class="card-content">
             <div>
               <h3>Xeer</h3>
               <p>
-                Multi-module cross-platform application delivering
-                personalized content modules alongside real-time asset
-                tracking capabilities.
+                Arabic-first personal-finance app: live gold, silver, and
+                currency prices, a credit-card debt payoff planner, a financial
+                personality report, and the Jarida news feed. I took over the
+                codebase and am its main contributor (70%+ of commits).
               </p>
               <ul>
                 <li>
-                  <i data-lucide="check-circle-2"></i> Architected foundation
-                  using Clean Architecture and BLoC.
+                  <i data-lucide="check-circle-2"></i> Built most feature modules,
+                  auth (Apple, Google, WhatsApp OTP, biometrics), and in-app
+                  purchase subscription tiers.
                 </li>
                 <li>
-                  <i data-lucide="check-circle-2"></i> Utilized Retrofit,
-                  build_runner, and auto_route for type-safe execution.
+                  <i data-lucide="check-circle-2"></i> Clean Architecture with
+                  BLoC, get_it, Retrofit, and Drift (SQLite) offline caching.
                 </li>
                 <li>
-                  <i data-lucide="check-circle-2"></i> Implemented strict
-                  hardware data encryption using flutter_secure_storage.
+                  <i data-lucide="check-circle-2"></i> Unit, Cubit, and widget
+                  tests with mocktail.
                 </li>
               </ul>
             </div>
@@ -136,19 +252,15 @@
               <span class="tag">Clean Architecture</span>
               <span class="tag">BLoC</span>
               <span class="tag">Retrofit</span>
-              <span class="tag">Encryption</span>
+              <span class="tag">Drift</span>
+              <span class="tag">In-App Purchases</span>
             </div>
           </div>
 
           <div class="card-gallery">
-            <div class="carousel-btn prev" onclick="
-                  this.nextElementSibling.scrollBy({
-                    left: -350,
-                    behavior: 'smooth',
-                  })
-                ">
+            <button type="button" class="carousel-btn prev" aria-label="Previous screenshot">
               <i data-lucide="chevron-left"></i>
-            </div>
+            </button>
             <div class="carousel">
               <img loading="lazy" decoding="async" src="assets/xeer/1.webp" alt="Xeer Screen 1" onerror="
                     this.src =
@@ -191,117 +303,49 @@
                       'https://placehold.co/400x800/1f2833/66fcf1?text=Xeer+Screen+10'
                   " />
             </div>
-            <div class="carousel-btn next" onclick="
-                  this.previousElementSibling.scrollBy({
-                    left: 350,
-                    behavior: 'smooth',
-                  })
-                ">
+            <button type="button" class="carousel-btn next" aria-label="Next screenshot">
               <i data-lucide="chevron-right"></i>
-            </div>
+            </button>
           </div>
         </article>
 
-        <!-- Doctoria -->
-        <article class="card wide fade-in delay-2">
+        <!-- Chat Package -->
+        <article class="card wide fade-in delay-1">
           <div class="card-content">
             <div>
-              <h3>Doctoria</h3>
+              <h3>Chat Module</h3>
               <p>
-                Comprehensive mobile healthcare platform featuring real-time
-                video/voice consultation rooms, medical appointment
-                management, and homecare service bookings.
+                An internal, reusable Flutter chat package I designed and maintain. Both
+                the Doctoria mobile and web apps install it as a git
+                dependency, and each app plugs in its own file upload, message
+                callbacks, and custom message types.
               </p>
               <ul>
                 <li>
-                  <i data-lucide="check-circle-2"></i> Integrated ZegoCloud &
-                  Jitsi WebRTC engines for tele-consultation.
+                  <i data-lucide="check-circle-2"></i> Clean Architecture with
+                  BLoC/Cubit and get_it, on Cloud Firestore.
                 </li>
                 <li>
-                  <i data-lucide="check-circle-2"></i> Configured Firebase
-                  Firestore real-time state sync and FCM notifications.
+                  <i data-lucide="check-circle-2"></i> Cursor pagination, read
+                  receipts, unread counts, and online / last-seen presence.
                 </li>
                 <li>
-                  <i data-lucide="check-circle-2"></i> Engineered secure
-                  remote payment gateway integration.
+                  <i data-lucide="check-circle-2"></i> Voice notes with live
+                  waveform, images, files, and link previews.
                 </li>
               </ul>
             </div>
-            <div class="store-links" style="margin-bottom: 20px">
-              <a href="https://play.google.com/store/apps/details?id=com.tailors.doctoria" target="_blank"><i
-                  class="fa-brands fa-google-play"></i> Play Store</a>
-              <a href="https://apps.apple.com/eg/app/doctoria-%D8%AF%D9%83%D8%AA%D9%88%D8%B1%D9%8A%D8%A7/id6502992790"
-                target="_blank"><i class="fa-brands fa-apple" style="font-size: 1.15em; margin-bottom: 2px"></i>
-                App Store</a>
-            </div>
             <div class="tags">
-              <span class="tag">Flutter</span>
-              <span class="tag">Firebase</span>
-              <span class="tag">ZegoCloud</span>
-              <span class="tag">WebRTC</span>
-            </div>
-          </div>
-
-          <div class="card-gallery">
-            <div class="carousel-btn prev" onclick="
-                  this.nextElementSibling.scrollBy({
-                    left: -350,
-                    behavior: 'smooth',
-                  })
-                ">
-              <i data-lucide="chevron-left"></i>
-            </div>
-            <div class="carousel">
-              <img loading="lazy" decoding="async" src="assets/doctoria/1.webp" alt="Doctoria Screen 1" onerror="
-                    this.src =
-                      'https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+1'
-                  " />
-              <img loading="lazy" decoding="async" src="assets/doctoria/2.webp" alt="Doctoria Screen 2" onerror="
-                    this.src =
-                      'https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+2'
-                  " />
-              <img loading="lazy" decoding="async" src="assets/doctoria/3.webp" alt="Doctoria Screen 3" onerror="
-                    this.src =
-                      'https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+3'
-                  " />
-              <img loading="lazy" decoding="async" src="assets/doctoria/4.webp" alt="Doctoria Screen 4" onerror="
-                    this.src =
-                      'https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+4'
-                  " />
-              <img loading="lazy" decoding="async" src="assets/doctoria/5.webp" alt="Doctoria Screen 5" onerror="
-                    this.src =
-                      'https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+5'
-                  " />
-              <img loading="lazy" decoding="async" src="assets/doctoria/6.webp" alt="Doctoria Screen 6" onerror="
-                    this.src =
-                      'https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+6'
-                  " />
-              <img loading="lazy" decoding="async" src="assets/doctoria/7.webp" alt="Doctoria Screen 7" onerror="
-                    this.src =
-                      'https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+7'
-                  " />
-              <img loading="lazy" decoding="async" src="assets/doctoria/8.webp" alt="Doctoria Screen 8" onerror="
-                    this.src =
-                      'https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+8'
-                  " />
-              <img loading="lazy" decoding="async" src="assets/doctoria/9.webp" alt="Doctoria Screen 9" onerror="
-                    this.src =
-                      'https://placehold.co/400x800/1f2833/66fcf1?text=Doctoria+9'
-                  " />
-            </div>
-            <div class="carousel-btn next" onclick="
-                  this.previousElementSibling.scrollBy({
-                    left: 350,
-                    behavior: 'smooth',
-                  })
-                ">
-              <i data-lucide="chevron-right"></i>
+              <span class="tag">Flutter Package</span>
+              <span class="tag">Clean Architecture</span>
+              <span class="tag">BLoC</span>
+              <span class="tag">Firestore</span>
             </div>
           </div>
         </article>
 
         <!-- VCard -->
-        <article class="card wide fade-in delay-1">
+        <article class="card compact fade-in delay-1">
           <div class="card-content">
             <div>
               <h3>VCard</h3>
@@ -336,14 +380,9 @@
           </div>
 
           <div class="card-gallery">
-            <div class="carousel-btn prev" onclick="
-                  this.nextElementSibling.scrollBy({
-                    left: -350,
-                    behavior: 'smooth',
-                  })
-                ">
+            <button type="button" class="carousel-btn prev" aria-label="Previous screenshot">
               <i data-lucide="chevron-left"></i>
-            </div>
+            </button>
             <div class="carousel">
               <img loading="lazy" decoding="async" src="assets/vcard/1.webp" alt="VCard Screen 1" onerror="
                     this.src =
@@ -362,19 +401,14 @@
                       'https://placehold.co/400x800/1f2833/66fcf1?text=VCard+Screen+4'
                   " />
             </div>
-            <div class="carousel-btn next" onclick="
-                  this.previousElementSibling.scrollBy({
-                    left: 350,
-                    behavior: 'smooth',
-                  })
-                ">
+            <button type="button" class="carousel-btn next" aria-label="Next screenshot">
               <i data-lucide="chevron-right"></i>
-            </div>
+            </button>
           </div>
         </article>
 
         <!-- Locmefi -->
-        <article class="card wide fade-in delay-2">
+        <article class="card compact fade-in delay-2">
           <div class="card-content">
             <div>
               <h3>Locmefi</h3>
@@ -407,14 +441,9 @@
           </div>
 
           <div class="card-gallery">
-            <div class="carousel-btn prev" onclick="
-                  this.nextElementSibling.scrollBy({
-                    left: -350,
-                    behavior: 'smooth',
-                  })
-                ">
+            <button type="button" class="carousel-btn prev" aria-label="Previous screenshot">
               <i data-lucide="chevron-left"></i>
-            </div>
+            </button>
             <div class="carousel">
               <img loading="lazy" decoding="async" src="assets/locmefi/1.webp" alt="Locmefi Screen 1" onerror="
                     this.src =
@@ -433,14 +462,9 @@
                       'https://placehold.co/400x800/1f2833/66fcf1?text=Locmefi+4'
                   " />
             </div>
-            <div class="carousel-btn next" onclick="
-                  this.previousElementSibling.scrollBy({
-                    left: 350,
-                    behavior: 'smooth',
-                  })
-                ">
+            <button type="button" class="carousel-btn next" aria-label="Next screenshot">
               <i data-lucide="chevron-right"></i>
-            </div>
+            </button>
           </div>
         </article>
       </div>
@@ -469,24 +493,12 @@
           </div>
           <ul class="exp-list">
             <li>
-              <i data-lucide="chevron-right"></i> Lead the mobile architecture and full-lifecycle development of
-              cross-platform applications for iOS and Android using Clean Architecture and BLoC.
+              <i data-lucide="chevron-right"></i> Ship and maintain the company's Flutter apps (Doctoria, VCard, Locmefi) on
+              Google Play and the App Store; top contributor by commits on Doctoria (1,000+).
             </li>
             <li>
-              <i data-lucide="chevron-right"></i> Architected reusable low-latency voice/video calling and consultation
-              modules leveraging ZegoCloud, Jitsi (WebRTC), and Firebase.
-            </li>
-            <li>
-              <i data-lucide="chevron-right"></i> Integrated Fawaterak payment gateway flows with automated transaction
-              verification and webhook error recovery.
-            </li>
-            <li>
-              <i data-lucide="chevron-right"></i> Engineered cross-platform NFC hardware communication, dynamic QR
-              scanning, and background GPS location tracking with optimized battery usage.
-            </li>
-            <li>
-              <i data-lucide="chevron-right"></i> Automated release and deployment pipelines using Fastlane and GitHub
-              Actions for Google Play Console and Apple App Store Connect.
+              <i data-lucide="chevron-right"></i> <span>Handle native Swift/Kotlin work below the Flutter layer and built a
+                shared chat package reused across apps. Details in <a href="#projects">Featured Applications</a>.</span>
             </li>
           </ul>
         </div>
@@ -506,20 +518,8 @@
           </div>
           <ul class="exp-list">
             <li>
-              <i data-lucide="chevron-right"></i> Architected the cross-platform development of a multi-module digital
-              financial twin application deployed to Google Play and Apple App Store.
-            </li>
-            <li>
-              <i data-lucide="chevron-right"></i> Established scalable codebase utilizing Clean Architecture, BLoC, and
-              Retrofit with code generation for compile-time safety.
-            </li>
-            <li>
-              <i data-lucide="chevron-right"></i> Engineered real-time asset pricing calculators, user favorites, and
-              personalized financial insights (Jarida).
-            </li>
-            <li>
-              <i data-lucide="chevron-right"></i> Hardened application security with flutter_secure_storage and envied
-              for API credentials and tokens.
+              <i data-lucide="chevron-right"></i> Main contributor (70%+ of commits) after taking over an existing codebase;
+              build features end to end, from API integration to UI and tests.
             </li>
           </ul>
         </div>
@@ -539,18 +539,12 @@
           </div>
           <ul class="exp-list">
             <li>
-              <i data-lucide="chevron-right"></i> Engineered reference mobile software applications and lab modules
-              using Flutter & Dart, teaching Clean Architecture, BLoC, and test-driven design to 5,000+ engineering
-              students.
+              <i data-lucide="chevron-right"></i> Built reference apps in Flutter and Java and taught 5,000+ students across
+              mobile development, Java, SQL, and operating systems.
             </li>
             <li>
-              <i data-lucide="chevron-right"></i> Supervised and evaluated 20+ capstone mobile graduation projects from
-              architectural design to working prototypes, instilling industry-standard Git workflows, CI/CD, and code
-              reviews.
-            </li>
-            <li>
-              <i data-lucide="chevron-right"></i> Instructed core computer science curriculum: Compiler Design (Java),
-              Operating Systems, Digital Image Processing, and Relational Database Systems (SQL).
+              <i data-lucide="chevron-right"></i> Supervised 20+ capstone projects from design to working prototype, with Git
+              workflows and code reviews.
             </li>
           </ul>
         </div>
@@ -572,9 +566,10 @@
           <div class="tags">
             <span class="tag">Dart</span>
             <span class="tag">Flutter</span>
+            <span class="tag">Kotlin</span>
+            <span class="tag">Swift</span>
             <span class="tag">Java</span>
             <span class="tag">Python</span>
-            <span class="tag">C++</span>
           </div>
         </div>
 
@@ -601,7 +596,7 @@
             <span class="tag">REST APIs</span>
             <span class="tag">Retrofit</span>
             <span class="tag">Firebase Firestore</span>
-            <span class="tag">Hive</span>
+            <span class="tag">Drift (SQLite)</span>
             <span class="tag">Secure Storage</span>
           </div>
         </div>
@@ -609,28 +604,30 @@
         <div class="skill-card fade-in delay-4">
           <h4>
             <i data-lucide="activity" width="20" height="20" color="var(--accent-color)"></i>
-            Real-Time & Media
+            Native & Real-Time
           </h4>
           <div class="tags">
-            <span class="tag">WebRTC</span>
+            <span class="tag">Platform Channels</span>
+            <span class="tag">Bluetooth LE</span>
+            <span class="tag">CallKit</span>
             <span class="tag">ZegoCloud</span>
             <span class="tag">Jitsi</span>
             <span class="tag">Firebase FCM</span>
-            <span class="tag">Google Maps API</span>
           </div>
         </div>
 
         <div class="skill-card fade-in delay-1">
           <h4>
             <i data-lucide="shield-check" width="20" height="20" color="var(--accent-color)"></i>
-            Fintech & Hardware
+            Payments & Device
           </h4>
           <div class="tags">
             <span class="tag">Fawaterak Payments</span>
+            <span class="tag">In-App Purchases</span>
             <span class="tag">NFC Read/Write</span>
             <span class="tag">QR Scanning</span>
             <span class="tag">Biometrics</span>
-            <span class="tag">Geofencing</span>
+            <span class="tag">Google Maps</span>
           </div>
         </div>
 
@@ -641,7 +638,7 @@
           </h4>
           <div class="tags">
             <span class="tag">Fastlane CI/CD</span>
-            <span class="tag">GitHub Actions</span>
+            <span class="tag">Crashlytics</span>
             <span class="tag">App Store Connect</span>
             <span class="tag">Google Play Console</span>
             <span class="tag">Git / GitHub</span>
@@ -725,10 +722,39 @@
         </div>
       </div>
     </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact fade-in">
+      <h2>
+        <i data-lucide="send" width="32" height="32" color="var(--accent-color)"></i>
+        Let's talk
+      </h2>
+      <p>
+        I'm open to Flutter and mobile engineering roles. The fastest way to reach me is email or LinkedIn.
+      </p>
+      <div class="links">
+        <a href="mailto:AhmedFouad2014@gmail.com" class="primary">
+          <i data-lucide="mail" width="20" height="20"></i>
+          Email me
+        </a>
+        <a href="https://linkedin.com/in/ahmedfouadrm" target="_blank">
+          <i data-lucide="linkedin" width="20" height="20"></i>
+          LinkedIn
+        </a>
+        <a href="assets/Ahmed-Fouad-CV.pdf" download>
+          <i data-lucide="download" width="20" height="20"></i>
+          Download CV
+        </a>
+      </div>
+    </section>
   </div>
 
+  <footer class="site-footer">
+    &copy; <span id="year">2026</span> Ahmed Fouad &middot; Cairo, Egypt
+  </footer>
+
   <!-- Initialize Icons and Scroll Animations -->
-  <script src="script.js" defer></script>
+  <script src="script.js?v=3" defer></script>
 
   <!-- Back to Top Button -->
   <a href="#home" class="back-to-top" id="backToTop">

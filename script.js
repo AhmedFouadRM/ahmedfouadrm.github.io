@@ -63,3 +63,40 @@ window.addEventListener("scroll", () => {
     backToTop.classList.remove("visible");
   }
 });
+
+// Mobile Nav Toggle
+const navToggle = document.querySelector(".nav-toggle");
+const navLinks = document.getElementById("nav-links");
+
+function setNavOpen(open) {
+  navLinks.classList.toggle("open", open);
+  navToggle.setAttribute("aria-expanded", String(open));
+  navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+}
+
+navToggle.addEventListener("click", () => {
+  setNavOpen(!navLinks.classList.contains("open"));
+});
+
+navLinks.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => setNavOpen(false));
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") setNavOpen(false);
+});
+
+// Carousel Buttons (scroll by one visible page of screenshots)
+document.querySelectorAll(".card-gallery").forEach((gallery) => {
+  const carousel = gallery.querySelector(".carousel");
+  gallery.querySelector(".carousel-btn.prev").addEventListener("click", () => {
+    carousel.scrollBy({ left: -carousel.clientWidth, behavior: "smooth" });
+  });
+  gallery.querySelector(".carousel-btn.next").addEventListener("click", () => {
+    carousel.scrollBy({ left: carousel.clientWidth, behavior: "smooth" });
+  });
+});
+
+// Footer Year
+const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
