@@ -100,3 +100,21 @@ document.querySelectorAll(".card-gallery").forEach((gallery) => {
 // Footer Year
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+// Highlight the nav link for the section in view
+const navAnchors = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+const sectionObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      navAnchors.forEach((a) => {
+        a.classList.toggle("active", a.getAttribute("href") === `#${entry.target.id}`);
+      });
+    });
+  },
+  { rootMargin: "-45% 0px -50% 0px" },
+);
+navAnchors.forEach((a) => {
+  const section = document.querySelector(a.getAttribute("href"));
+  if (section) sectionObserver.observe(section);
+});
