@@ -1197,3 +1197,39 @@ section:hover h2::after {
     text-align: left;
   }
 }
+
+/* Open-source project card (Mal) */
+.oss-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  background: rgba(52, 211, 153, 0.08);
+  color: #6ee7b7;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.card h3 span[lang="ar"] {
+  margin-left: 6px;
+  font-weight: 600;
+  opacity: 0.75;
+}
+
+.store-pending {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  color: #8b95a5;
+  font-size: 0.95rem;
+  font-weight: 500;
+  white-space: nowrap;
+}

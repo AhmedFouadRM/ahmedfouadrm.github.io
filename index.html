@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ahmed Fouad | Flutter Developer &amp; Software Engineer</title>
   <meta name="description"
-    content="Ahmed Fouad: Flutter engineer in Cairo. Core developer on the Doctoria telehealth app, main contributor to Xeer, Bluetooth medical-device and video-call integrations, M.Sc. in AI." />
+    content="Ahmed Fouad: Flutter engineer in Cairo. Core developer on the Doctoria telehealth app, main contributor to Xeer, builder of the open-source Mal expense tracker, M.Sc. in AI." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ahmedfouadrm.github.io/" />
   <meta property="og:title" content="Ahmed Fouad | Flutter Developer &amp; Software Engineer" />
@@ -30,7 +30,7 @@
   <!-- FontAwesome (For brand icons like Google Play & Apple) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-  <link rel="stylesheet" href="style.css?v=6" />
+  <link rel="stylesheet" href="style.css?v=8" />
 </head>
 
 <body>
@@ -75,7 +75,7 @@
       <p class="hero-desc">
         Flutter engineer with 3+ years building iOS &amp; Android apps. Core developer on <strong>Doctoria</strong>
         (telehealth) and main contributor to <strong>Xeer</strong> (personal finance), shipping features end to end
-        from API to UI and tests.
+        from API to UI and tests. Builder of <strong>Mal</strong>, an open-source, offline-first expense tracker.
       </p>
       <ul class="highlights">
         <li><strong>4</strong> Flutter apps live on the stores</li>
@@ -118,7 +118,7 @@
 
       <p class="section-note fade-in">
         <i data-lucide="lock" width="14" height="14"></i>
-        Client work under commercial licenses, so source code is private. Store links and screenshots below.
+        Client apps are under commercial licenses, so their source is private. Mal is my own open-source app.
       </p>
 
       <div class="grid">
@@ -244,6 +244,70 @@
               <img loading="lazy" decoding="async" src="assets/xeer/8.webp" alt="Xeer Screen 8" />
               <img loading="lazy" decoding="async" src="assets/xeer/9.webp" alt="Xeer Screen 9" />
               <img loading="lazy" decoding="async" src="assets/xeer/10.webp" alt="Xeer Screen 10" />
+            </div>
+            <button type="button" class="carousel-btn next" aria-label="Next screenshot">
+              <i data-lucide="chevron-right"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Mal (open source) -->
+        <article class="card wide fade-in delay-1">
+          <div class="card-content">
+            <div>
+              <span class="oss-badge"><i data-lucide="git-branch" width="14" height="14"></i> Open source &middot; personal project</span>
+              <h3>Mal <span lang="ar" dir="rtl">مال</span></h3>
+              <p>
+                Offline-first, privacy-focused expense tracker in Arabic and
+                English. Everything stays on the device: no backend, no
+                analytics. I designed and built it solo, from architecture and
+                brand to release.
+              </p>
+              <ul>
+                <li>
+                  <i data-lucide="check-circle-2"></i> Android SMS import: a
+                  Kotlin platform channel and a headless background isolate feed
+                  a rule-based parser for 20 Egyptian banks and wallets
+                  (CIB, NBE, InstaPay, Vodafone Cash, and more).
+                </li>
+                <li>
+                  <i data-lucide="check-circle-2"></i> Wallets, transfers,
+                  budgets, recurring expenses, and fl_chart analytics on a
+                  versioned Drift (SQLite) schema with tested migrations.
+                </li>
+                <li>
+                  <i data-lucide="check-circle-2"></i> 9 Clean Architecture
+                  feature slices, Cubit + get_it + go_router, PIN / biometric
+                  lock, and 1,000+ unit, bloc, and widget tests.
+                </li>
+              </ul>
+            </div>
+            <div class="store-links" style="margin-bottom: 20px">
+              <a href="https://github.com/AhmedFouadRM/Mal-App" target="_blank"><i class="fa-brands fa-github"></i>
+                Source on GitHub</a>
+              <!-- In review. Once live, replace this span with:
+                <a href="https://play.google.com/store/apps/details?id=com.malapp.app" target="_blank"><i class="fa-brands fa-google-play"></i> Play Store</a> -->
+              <span class="store-pending"><i class="fa-brands fa-google-play"></i> Play Store &middot; in review</span>
+            </div>
+            <div class="tags">
+              <span class="tag">Clean Architecture</span>
+              <span class="tag">Cubit</span>
+              <span class="tag">Drift</span>
+              <span class="tag">Platform Channels</span>
+              <span class="tag">Offline-first</span>
+            </div>
+          </div>
+          <div class="card-gallery">
+            <button type="button" class="carousel-btn prev" aria-label="Previous screenshot">
+              <i data-lucide="chevron-left"></i>
+            </button>
+            <div class="carousel">
+              <img loading="lazy" decoding="async" src="assets/mal/1.webp" alt="Mal: Your money, clearly: wallet transactions" />
+              <img loading="lazy" decoding="async" src="assets/mal/2.webp" alt="Mal: See where it all goes: analytics" />
+              <img loading="lazy" decoding="async" src="assets/mal/3.webp" alt="Mal: Budgets that warn you early" />
+              <img loading="lazy" decoding="async" src="assets/mal/4.webp" alt="Mal: Bank SMS become transactions" />
+              <img loading="lazy" decoding="async" src="assets/mal/5.webp" alt="Mal: Bills that log themselves: recurring expenses" />
+              <img loading="lazy" decoding="async" src="assets/mal/6.webp" alt="Mal: Private, and fully offline: PIN lock" />
             </div>
             <button type="button" class="carousel-btn next" aria-label="Next screenshot">
               <i data-lucide="chevron-right"></i>
@@ -505,6 +569,7 @@ SugarChatService().<span class="f">init</span>(
             <span class="tag">Provider</span>
             <span class="tag">get_it</span>
             <span class="tag">auto_route</span>
+            <span class="tag">go_router</span>
             <span class="tag">Java</span>
             <span class="tag">Python</span>
           </div>
@@ -521,6 +586,8 @@ SugarChatService().<span class="f">init</span>(
             <span class="tag">NFC</span>
             <span class="tag">QR</span>
             <span class="tag">Biometrics</span>
+            <span class="tag">Platform Channels (Kotlin)</span>
+            <span class="tag">Background Isolates</span>
           </div>
         </div>
 
