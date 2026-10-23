@@ -1,0 +1,192 @@
+%-------------------------
+% Resume in Latex
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+% Custom commands
+\newcommand{\resumeItem}[1]{\item\small{{#1 \vspace{-2pt}}}}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Huge \scshape Ahmed Mahmoud Fouad} \\ \vspace{3pt}
+    {\large \textbf{Software Engineer \textbar\ Flutter Developer \textbar\ Mobile Application Engineer}} \\ \vspace{3pt}
+    \small Cairo, Egypt ~ $|$ ~
+    \raisebox{-0.1\height}\faPhone\ +20 1000255723 ~ $|$ ~ 
+    \href{mailto:AhmedFouad2014@gmail.com}{\raisebox{-0.2\height}\faEnvelope\ \underline{AhmedFouad2014@gmail.com}} ~ $|$ ~
+    \href{https://ahmedfouadrm.github.io}{\raisebox{-0.2\height}\faGlobe\ \underline{ahmedfouadrm.github.io}} \\ \vspace{2pt}
+    \href{https://linkedin.com/in/ahmedfouadrm}{\raisebox{-0.2\height}\faLinkedin\ \underline{linkedin.com/in/ahmedfouadrm}} ~ $|$ ~
+    \href{https://github.com/ahmedfouadrm}{\raisebox{-0.2\height}\faGithub\ \underline{github.com/ahmedfouadrm}}
+    \vspace{-8pt}
+\end{center}
+
+%------Profile-------
+\section{Summary}
+\textbf{Flutter Engineer} with 3+ years building iOS \& Android apps, including a telehealth platform and a fintech app live on Google Play and the App Store. Works in \textbf{Clean Architecture} and \textbf{BLoC}, with integrations from Bluetooth medical devices to video calls and payments. Holds an \textbf{M.Sc. in Artificial Intelligence} with research published in \textit{Scientific Reports} (Nature Portfolio).
+
+%-----------Skills-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Dart, Java, Python \quad $|$ \quad Arabic (native), English (full professional)} \\
+     \textbf{Flutter \& Architecture}{: Clean Architecture, BLoC/Cubit, Provider, get\_it, auto\_route, build flavors, Flutter packages} \\
+     \textbf{Device \& Platform}{: Bluetooth LE (iHealth SDK), CallKit, NFC, QR, Biometrics, Deep Links, Platform Channels} \\
+     \textbf{Networking \& Data}{: REST, Dio, Retrofit, Drift (SQLite), Firestore, flutter\_secure\_storage, envied} \\
+     \textbf{Integrations}{: ZegoCloud, Jitsi, Fawaterak payments, In-App Purchases, Google Maps, Apple/Google Sign-In} \\
+     \textbf{Firebase \& Release}{: FCM, Auth, Crashlytics, Analytics, Fastlane, App Store Connect, Play Console, Git} \\
+     \textbf{Testing \& Practices}{: Unit, Cubit \& Widget tests (mocktail), Code Reviews, Agile/Scrum} \\
+    }}
+ \end{itemize}
+ \vspace{-16pt}
+
+%-----------Experience-----------
+\section{Professional Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Bit-Tech}{Nov 2024 -- Present}
+      {Mobile Application Engineer}{Maadi, Cairo, Egypt}
+      \resumeItemListStart
+        \resumeItem{Ship and maintain \textbf{Doctoria}, \textbf{VCard}, and \textbf{Locmefi}; top contributor by commits on Doctoria (1,000+).}
+        \resumeItem{Built a \textbf{shared chat package} reused across apps; integrate devices, video calls, and payments.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Xeer}{Jan 2026 -- Present}
+      {Mobile Application Engineer (Part-Time)}{Remote}
+      \resumeItemListStart
+        \resumeItem{\textbf{Main contributor} (70\%+ of commits) after taking over an existing codebase; features end to end.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Modern Academy for Computer Science}{Oct 2018 -- Nov 2024}
+      {Mobile Software Engineer \& Academic Instructor}{Maadi, Cairo, Egypt}
+      \resumeItemListStart
+        \resumeItem{Taught 5,000+ students (Flutter, Java, SQL, OS) and supervised 20+ capstone projects.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+\vspace{-16pt}
+
+%-----------Projects-----------
+\section{Projects}
+\vspace{-5pt}
+\resumeSubHeadingListStart
+
+\resumeProjectHeading
+  {\textbf{Doctoria} -- telehealth $|$ \href{https://play.google.com/store/apps/details?id=com.tailors.doctoria}{\underline{Play}} $|$ \href{https://apps.apple.com/eg/app/doctoria-\%D8\%AF\%D9\%83\%D8\%AA\%D9\%88\%D8\%B1\%D9\%8A\%D8\%A7/id6502992790}{\underline{App Store}}}{Flutter, Bluetooth LE, ZegoCloud, Firestore}
+\resumeItemListStart
+  \resumeItem{Integrated \textbf{iHealth Bluetooth} medical devices (5 types), working with the team lead on the native bridge.}
+  \resumeItem{Integrated \textbf{ZegoCloud/Jitsi} video consultations with native \textbf{CallKit} incoming calls, and \textbf{Fawaterak} payments (cards, Fawry, Aman, mobile wallets).}
+  \resumeItem{29 modules, 3 build flavors, Arabic/English; automated Play releases with \textbf{Fastlane}.}
+\resumeItemListEnd
+\vspace{-13pt}
+
+\resumeProjectHeading
+  {\textbf{Xeer} -- personal finance $|$ \href{https://play.google.com/store/apps/details?id=com.xeer.xeer}{\underline{Play}} $|$ \href{https://apps.apple.com/us/app/xeer-digital-financial-twin/id6740770481}{\underline{App Store}}}{Clean Architecture, BLoC, Retrofit, Drift}
+\resumeItemListStart
+  \resumeItem{Built most features: currency conversion, debt payoff planner, financial personality report, \textit{Jarida} feed.}
+  \resumeItem{Built auth (Apple, Google, WhatsApp OTP, biometrics) and \textbf{in-app purchase} subscription tiers with feature gating.}
+  \resumeItem{\textbf{Clean Architecture}, BLoC, Retrofit, \textbf{Drift} offline cache; unit, Cubit, and widget tests.}
+\resumeItemListEnd
+\vspace{-13pt}
+
+\resumeProjectHeading
+  {\textbf{Mal} -- open-source expense tracker $|$ \href{https://github.com/AhmedFouadRM/Mal-App}{\underline{GitHub}} $|$ \href{https://play.google.com/store/apps/details?id=com.malapp.app}{\underline{Play}}}{Clean Architecture, Cubit, Drift, Kotlin}
+\resumeItemListStart
+  \resumeItem{Solo-built offline-first AR/EN app; Android \textbf{SMS import} via a Kotlin platform channel (20 banks/wallets).}
+\resumeItemListEnd
+\vspace{-13pt}
+
+\resumeProjectHeading
+  {\textbf{Chat Module} -- internal Flutter package}{Clean Architecture, BLoC, Firestore}
+\resumeItemListStart
+  \resumeItem{Reusable chat package for Doctoria mobile and web: pagination, read receipts, presence, voice notes.}
+\resumeItemListEnd
+\vspace{-13pt}
+
+\resumeProjectHeading
+  {\textbf{VCard} (\href{https://play.google.com/store/apps/details?id=sa.bittech.vcard}{\underline{Play}}, \href{https://apps.apple.com/us/app/vcard-app/id6745150384}{\underline{App Store}}) \& \textbf{Locmefi} (\href{https://apps.apple.com/us/app/locmefi/id6744578794}{\underline{App Store}})}{NFC, QR, Google Maps, FCM}
+\resumeItemListStart
+  \resumeItem{VCard: contact exchange over \textbf{NFC} and \textbf{QR}. Locmefi: live map tracking with \textbf{geofence} alerts via FCM.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\vspace{-15pt}
+
+%-----------Education-----------
+\section{Education}
+  \resumeSubHeadingListStart
+   \resumeSubheading
+      {Faculty of Computers and Artificial Intelligence, Benha University}{Feb 2019 -- Mar 2026}
+      {Master of Science in Artificial Intelligence -- Digital Forensics \& Deep Learning}{Benha, Egypt} 
+      \resumeItemListStart
+        \resumeItem{\textbf{Published:} \href{https://doi.org/10.1038/s41598-025-04203-0}{\underline{Multi-branch network for double JPEG detection and localization}}, \textit{Scientific Reports (2025)}.}
+      \resumeItemListEnd
+   \resumeSubheading
+      {Modern Academy for Computer Science}{Sep 2014 -- Jun 2018}
+      {Bachelor of Science in Computer Science (Excellence with Honors)}{Cairo, Egypt}
+  \resumeSubHeadingListEnd
+
+\end{document}
