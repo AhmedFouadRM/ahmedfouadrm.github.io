@@ -1219,17 +1219,3 @@ section:hover h2::after {
   opacity: 0.75;
 }
 
-.store-pending {
-  flex: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 8px 16px;
-  border-radius: 8px;
-  border: 1px dashed rgba(255, 255, 255, 0.15);
-  color: #8b95a5;
-  font-size: 0.95rem;
-  font-weight: 500;
-  white-space: nowrap;
-}
